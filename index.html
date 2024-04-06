@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div id="header">
+        <div style="position: absolute;COLOR: white;font-size: 18px;top: 32px;font-weight: bold;left: 8px">
+            <span id="title-header">QUẢN LÝ THÔNG TIN SINH VIÊN</span>
+        </div>
+        <div class="bars">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div id="nav-bar">
+            <span>Nguyễn Huy Hoàng</span> |
+            <a href="#">Trang chủ</a> |
+            <a href="#">Đăng xuất</a> |
+            <a href="#">Hỏi đáp</a> |
+        </div>
+        <div id="menu">
+            <ul id="nav">
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Giới thiệu</a></li>
+                <li><a href="#">Liên lạc</a></li>
+                <li><a href="#">Quản lý</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="content">
+        <div class="row no-margin-xs">
+            <div id="side" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <ul class="sidebar">
+                    <li><a href="#">Quản lý 1</a></li>
+                    <li><a href="#">Quản lý 2</a></li>
+                    <li><a href="#">Quản lý 3</a></li>
+                    <li><a href="#">Quản lý 4</a></li>
+                    <li><a href="#">Quản lý 5</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 no-padding-xs" style="padding-right: 30px;">
+                <div id="ttsv">
+                    <h1 class="text-center" style="color: #337ab7;">Quản lý sinh viên</h1>
+                    <div class="function flex-direction-column-xs">
+                        <div class="box-left">
+                            <button type="button" class="btn pd-xs mr-1" style="margin-bottom: 10px;" id="addStudentBtn">
+                                <i class="fa-solid fa-plus mr-1" style="color: red;"></i>Thêm sinh viên
+                            </button>
+                            <button type="button" class="btn pd-xs" style="margin-bottom: 10px;" id="deleteManyBtn">
+                                <i class="fa-sharp fa-solid fa-trash mr-1" style="color: red;"></i>Xoá
+                            </button>
+                        </div>
+                        <div class="search mb-1">
+                            <select class="form-control input-sm mr-1 input-xs mr-b-xs-1" id="courses-search" name="courses-search">
+                                <option value="" selected>-- Tất cả khoa --</option>
+                                <option value="Công nghệ thông tin">Công nghệ thông tin</option>
+                                <option value="Xây dựng">Kỹ thuật xây dựng</option>
+                                <option value="Kinh tế">Kinh tế</option>
+                            </select>
+                            <select class="form-control input-sm mr-1 input-xs mr-b-xs-1" id="male-search" name="male-search">
+                                <option value="" selected>-- Giới tính --</option>
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ">Nữ</option>
+                            </select>
+                            <div id="custom-search-input">
+                                <div class="input-group col-md-12">
+                                    <input type="text" class="form-control input-sm input-xs" style="min-width: 150px;" placeholder="Tìm kiếm" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-info btn-sm input-xs" type="button">
+                                            <i class="glyphicon glyphicon-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="overlay" class="overlay">
+                        <div id="studentModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <h2 style="text-align: center; margin-bottom: 20px;">Thông tin sinh viên</h2>
+                                <form class="form-horizontal" id="studentForm">
+                                    <div class="flex">
+                                        <div class="col-lg-6 form-group no-padding">
+                                            <label for="studentId">Mã sinh viên</label>
+                                            <div class="required">
+                                                <input class="form-control" type="text" id="studentId" name="studentId" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 form-group no-padding">
+                                            <label for="name">Họ và tên:</label>
+                                            <div class="required">
+                                                <input class="form-control" type="text" id="name" name="name" required><br>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex">
+                                        <div class="col-lg-6 form-group no-padding">
+                                            <label for="dob">Ngày sinh:</label>
+                                            <div class="required">
+                                                <input class="form-control" type="text" id="dob" name="dob" required><br>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 form-group no-padding">
+                                            <label for="courses">Khoa:</label>
+                                            <div class="required">
+                                                <select class="form-control" id="courses" name="courses" required>
+                                            <option value="" selected>-- Tất cả khoa --</option>
+                                            <option value="Công nghệ thông tin">Công nghệ thông tin</option>
+                                            <option value="Xây dựng">Kỹ thuật xây dựng</option>
+                                            <option value="Kinh tế">Kinh tế</option>
+                                        </select><br>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="gender">Giới tính:</label>
+                                        <input type="radio" id="male" name="gender" value="Nam">
+                                        <label for="male">Nam</label>
+                                        <input type="radio" id="female" name="gender" value="Nữ">
+                                        <label for="female">Nữ</label><br>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label for="address">Địa chỉ:</label>
+                                        <textarea class="form-control" id="address" name="address"></textarea><br>
+                                    </div>
+
+
+                                    <div class="group-btn">
+                                        <button class="btn btn-primary mr-1" type="button" id="saveBtn">Lưu</button>
+                                        <button class="btn btn-primary" type="button" id="updateBtn">Lưu</button>
+                                        <button class="btn btn-primary" type="button" id="resetBtn">Đặt lại</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="table-ttsv">
+                        <table class="table table-bordered table-hover">
+
+                            <thead>
+                                <tr class="danger text-center">
+                                    <th></th>
+                                    <th>Mã sinh viên</th>
+                                    <th>Họ và tên</th>
+                                    <th>Ngày sinh</th>
+                                    <th>Giới tính</th>
+                                    <th>Khoa</th>
+                                    <th>Quê quán</th>
+                                    <th>Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody id="studentList">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagenumber">
+                        <ul class="pagination">
+                            <li class="pagination_button">
+                                <a href="#" class="page-link">Trước</a>
+                            </li>
+                            <li class="pagination_button">
+                                <a href="#" class="page-link">1</a>
+                            </li>
+                            <li class="pagination_button">
+                                <a href="#" class="page-link">2</a>
+                            </li>
+                            <li class="pagination_button">
+                                <a href="#" class="page-link">3</a>
+                            </li>
+                            <li class="pagination_button">
+                                <a href="#" class="page-link">Kế tiếp</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>

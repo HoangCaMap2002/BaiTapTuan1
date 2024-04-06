@@ -1,0 +1,353 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+#header {
+    background-color: #56a4fe;
+    width: 100%;
+    min-height: 88px;
+    position: relative;
+}
+
+#nav-bar {
+    font-size: 12px;
+    color: #337ab7;
+    padding: 5px 5px 0 5px;
+    background-color: #fff;
+    min-height: 28px;
+    width: 400px;
+    top: 0;
+    right: 0px;
+    position: absolute;
+    font-weight: bold;
+    border-bottom-left-radius: 75px;
+}
+
+#nav-bar span {
+    font-size: 12px;
+    color: #337ab7;
+}
+
+#menu {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    background-color: #ccc;
+    line-height: 46px;
+}
+
+#menu ul {
+    display: flex;
+    width: 100%;
+    margin: 0;
+}
+
+#menu ul li {
+    list-style-type: none;
+    padding: 5px 20px;
+}
+
+#menu ul li:hover {
+    background-color: #fff;
+}
+
+#menu ul li a {
+    color: #337ab7;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#content {
+    margin-top: 56px;
+}
+
+#content .sidebar {
+    background-color: #fffbfb;
+    height: 1500px;
+    list-style-type: none;
+    padding: 0;
+}
+
+#content .sidebar li {
+    padding: 10px 10px;
+    border-bottom: 1px solid #ccc;
+    background-color: #56a4fe;
+}
+
+#content .sidebar li:hover a {
+    color: red;
+}
+
+#content .sidebar li a {
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/*Modal*/
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Màu đen với độ trong suốt 50% */
+    z-index: 1000;
+    /* Đảm bảo lớp phủ mờ được hiển thị trên modal */
+    display: none;
+    /* Ẩn ban đầu */
+}
+
+.modal-content {
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 1000px;
+    height: 100%;
+    padding: 40px;
+}
+
+.modal {
+    display: flex !important;
+    justify-content: center;
+    height: 1000px;
+}
+
+
+/*Page Number*/
+
+.pagination_button {}
+
+
+/*Required*/
+
+.required-asterisk {
+    color: red;
+    margin-left: 7px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    /* hoặc bất kỳ giá trị nào khác bạn muốn */
+}
+
+.required {
+    display: flex;
+}
+
+.modal-content button.btn:hover {
+    background-color: red;
+    color: #fff
+}
+
+.table>tbody>tr>td {
+    vertical-align: middle !important;
+}
+
+
+/*Button*/
+
+.mr-1 {
+    margin-right: 1rem !important;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.group-btn {
+    display: flex;
+    justify-content: end;
+    margin: 0 -15px;
+}
+
+
+/*Function*/
+
+.function {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search {
+    display: flex;
+}
+
+.bars {
+    display: none;
+}
+
+
+/*Sidebar*/
+
+.sidebar {}
+
+#side {
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5);
+    padding-right: 0;
+}
+
+#studentForm textarea,
+#studentForm select,
+#studentForm input {
+    background-color: #d9edf7;
+}
+
+
+/*Reponsive*/
+
+@media only screen and (max-width:577px) {
+    .search {
+        display: flex;
+        flex-direction: column;
+    }
+    .mr-b-xs-1 {
+        margin-bottom: 1rem;
+    }
+}
+
+@media only screen and (max-width:991px) {
+    #table-ttsv tbody,
+    #table-ttsv tr,
+    #table-ttsv td {
+        display: block;
+    }
+    #table-ttsv thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    #table-ttsv td {
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+    #table-ttsv td:before {
+        content: attr(data-title);
+        position: absolute;
+        left: 6px;
+        font-weight: bold;
+    }
+    #table-ttsv tr {
+        border-bottom: 1px solid #ccc;
+    }
+    .mobile-checkbox {
+        position: absolute;
+        top: 2px;
+        left: 6px;
+        z-index: 100;
+    }
+    .flex-direction-column-xs {
+        display: flex;
+        flex-direction: column;
+    }
+    .no-margin-xs {
+        margin: 0;
+    }
+    .no-padding-xs {
+        padding: 0 8px !important;
+    }
+    .bars {
+        display: block;
+        position: absolute;
+        color: #fff;
+        right: 2px;
+        top: 31px;
+        font-size: 38px;
+    }
+    .flex {
+        display: inline;
+    }
+    #menu ul {
+        display: none;
+    }
+    #content {
+        margin-top: 0;
+    }
+    #ttsv h1 {
+        font-size: 24px;
+    }
+    #nav-bar {
+        width: 319px;
+    }
+    .input-xs {
+        height: 44px !important;
+    }
+    .pd-xs {
+        padding: 11px;
+    }
+    .modal-content {
+        height: 500px;
+        overflow-y: scroll;
+        padding: 24px;
+        position: relative;
+    }
+    .modal-content h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+    .modal-content .close {
+        position: absolute;
+        top: 0;
+        right: 5px;
+        font-size: 30px;
+    }
+    #content #side {
+        position: fixed;
+        z-index: 1000;
+        padding: 0;
+        left: -100%;
+        transition: left 0.4s ease;
+    }
+    #side.open {
+        left: 0 !important;
+        /* Khi có class 'open', menu sẽ hiển thị ở vị trí bình thường */
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    /* Đặt kiểu dáng cho các thành phần tại điểm phá vỡ SM */
+    .modal-content {
+        height: 750px;
+    }
+    .bars {
+        right: 8px;
+    }
+}
+
+
+/* Thiết lập kiểu dáng cho các thiết bị từ 769px đến 992px (MD) */
+
+@media (min-width: 769px) and (max-width: 992px) {
+    /* Đặt kiểu dáng cho các thành phần tại điểm phá vỡ MD */
+}
+
+
+/* Thiết lập kiểu dáng cho các thiết bị từ 993px đến 1200px (LG) */
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    /* Đặt kiểu dáng cho các thành phần tại điểm phá vỡ LG */
+}
+
+
+/* Thiết lập kiểu dáng cho các thiết bị lớn hơn 1200px (XL) */
+
+@media (min-width: 1201px) {
+    /* Đặt kiểu dáng cho các thành phần tại điểm phá vỡ XL */
+}
