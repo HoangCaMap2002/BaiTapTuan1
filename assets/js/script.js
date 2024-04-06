@@ -1,4 +1,62 @@
 $(document).ready(function() {
+    var sampleStudents = [{
+            studentId: 1,
+            name: "Nguyễn Văn A",
+            dob: "12/04/2024",
+            gender: "Nam",
+            courses: "Công nghệ thông tin",
+            address: "123 Đường ABC, Quận XYZ, Thành phố HCM"
+        },
+        {
+            studentId: 2,
+            name: "Trần Thị B",
+            dob: "12/04/2024",
+            gender: "Nam",
+            courses: "Công nghệ thông tin",
+            address: "456 Đường XYZ, Quận ABC, Thành phố Hà Nội"
+        },
+        {
+            studentId: 3,
+            name: "Lê Văn C",
+            dob: "12/04/2024",
+            gender: "Nữ",
+            courses: "Xây dựng",
+            address: "789 Đường DEF, Quận HIJ, Thành phố Đà Nẵng"
+        },
+        {
+            studentId: 4,
+            name: "Nguyễn Huy Hoang",
+            dob: "12/04/2024",
+            gender: "Nam",
+            courses: "Kinh tế",
+            address: "789 Đường DEF, Quận HIJ, Thành phố Đà Nẵng"
+        },
+        {
+            studentId: 5,
+            name: "Lê Quang Việt",
+            dob: "12/04/2024",
+            gender: "Nữ",
+            courses: "Xây dựng",
+            address: "789 Đường DEF, Quận HIJ, Thành phố Đà Nẵng"
+        },
+        {
+            studentId: 6,
+            name: "Tạ Quang Lợi",
+            dob: "12/04/2024",
+            gender: "Nữ",
+            courses: "Xây dựng",
+            address: "789 Đường DEF, Quận HIJ, Thành phố Đà Nẵng"
+        }
+    ];
+
+    // Lấy danh sách sinh viên từ localStorage (nếu có)
+    var students = JSON.parse(localStorage.getItem('students')) || [];
+
+    // Thêm dữ liệu mẫu vào danh sách sinh viên (nếu danh sách trống)
+    if (students.length === 0) {
+        students = sampleStudents;
+        localStorage.setItem('students', JSON.stringify(students));
+    }
     //Kiểm tra xem mã sinh viên đã tồn tại hay chưa
     function isStudentExist(studentId) {
         var students = JSON.parse(localStorage.getItem('students')) || [];
