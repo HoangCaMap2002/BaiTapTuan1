@@ -78,42 +78,42 @@ $(document).ready(function() {
         var studentId = $('#studentId').val();
         if (studentId == '') {
             isValid = false;
-            $('#studentId').after('<div class="error-message">Vui lòng nhập mã sinh viên</div>');
+            $('#studentId').parent().after('<div class="text-danger error-message">Vui lòng nhập mã sinh viên</div>');
         }
 
         // Kiểm tra tên
         var name = $('#name').val();
         if (name == '') {
             isValid = false;
-            $('#name').after('<div class="error-message">Vui lòng nhập họ và tên</div>');
+            $('#name').parent().after('<div class="text-danger error-message">Vui lòng nhập họ và tên</div>');
         }
 
         // Kiểm tra ngày sinh
         var dob = $('#dob').val();
         if (dob == '') {
             isValid = false;
-            $('#dob').after('<div class="error-message">Vui lòng nhập ngày sinh</div>');
+            $('#dob').parent().after('<div class="text-danger error-message">Vui lòng nhập ngày sinh</div>');
         }
 
         // Kiểm tra giới tính
         var gender = $('input[name="gender"]:checked').val();
         if (typeof gender === 'undefined') {
             isValid = false;
-            $('#gender').after('<div class="error-message">Vui lòng chọn giới tính</div>');
+            $('#gender').parent().after('<div class="text-danger error-message">Vui lòng chọn giới tính</div>');
         }
 
         // Kiểm tra khoa
         var courses = $('#courses').val();
         if (courses == '') {
             isValid = false;
-            $('#courses').after('<div class="error-message">Vui lòng chọn khoa</div>');
+            $('#courses').parent().after('<div class="text-danger error-message">Vui lòng chọn khoa</div>');
         }
 
         // Kiểm tra địa chỉ
         var address = $('#address').val();
         if (address == '') {
             isValid = false;
-            $('#address').after('<div class="error-message">Vui lòng nhập địa chỉ</div>');
+            $('#address').parent().after('<div class="text-danger error-message">Vui lòng nhập địa chỉ</div>');
         }
 
         return isValid;
