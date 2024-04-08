@@ -6,6 +6,7 @@
 
 body {
     overflow-x: hidden;
+    color: #271756;
 }
 
 .no-padding {
@@ -13,15 +14,55 @@ body {
 }
 
 #header {
-    background-color: #56a4fe;
+    background-color: #271756;
     width: 100%;
     min-height: 88px;
     position: relative;
+    display: flex;
+}
+
+.header-banner-text {
+    margin-left: 8px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+}
+
+.logo p {
+    text-transform: uppercase;
+}
+
+.logo p:nth-child(1) {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    margin-bottom: 4px!important;
+    text-transform: uppercase;
+}
+
+.logo p:nth-child(2) {
+    color: #facb01;
+    font-size: 12px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    text-transform: uppercase;
 }
 
 #nav-bar {
     font-size: 12px;
-    color: #337ab7;
+    color: #271756;
     padding: 5px 5px 0 5px;
     background-color: #fff;
     min-height: 28px;
@@ -33,21 +74,24 @@ body {
     border-bottom-left-radius: 75px;
 }
 
+#nav-bar a,
 #nav-bar span {
     font-size: 12px;
-    color: #337ab7;
+    color: #271756;
 }
 
 #menu {
     position: absolute;
     top: 100%;
     width: 100%;
-    background-color: #ccc;
+    background-color: #fff;
     line-height: 46px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #menu ul {
     display: flex;
+    justify-content: center;
     width: 100%;
     margin: 0;
 }
@@ -62,9 +106,17 @@ body {
 }
 
 #menu ul li a {
-    color: #337ab7;
-    text-decoration: none;
-    text-transform: uppercase;
+    padding: 15px 16px;
+    color: #271756;
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: .16px;
+    text-align: left;
+    cursor: pointer;
+    user-select: none;
 }
 
 #content {
@@ -72,31 +124,78 @@ body {
 }
 
 #content .sidebar {
-    background-color: #fffbfb;
+    background-color: #271756;
     height: 1500px;
     list-style-type: none;
     padding: 0;
 }
 
+.sidebar-brand {
+    background-color: #271756;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 10px;
+    display: none;
+}
+
+.sidebar-brand p {
+    text-transform: uppercase;
+}
+
+.sidebar-brand p:nth-child(1) {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    margin-bottom: 4px!important;
+    text-transform: uppercase;
+}
+
+.sidebar-brand p:nth-child(2) {
+    color: #facb01;
+    font-size: 12px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    text-transform: uppercase;
+}
+
 #content .sidebar li {
-    padding: 10px 10px;
-    border-bottom: 1px solid #ccc;
-    background-color: #56a4fe;
+    padding: 12px 16px;
+    /*  border-bottom: 1px solid #ccc;
+    background-color: #56a4fe; */
 }
 
 #content .sidebar li:hover a {
-    color: red;
+    color: #fff;
+    text-decoration: none;
 }
 
 #content .sidebar li a {
-    color: #fff;
-    font-size: 14px;
-    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: .16px;
+    text-align: left;
+    color: #facb01;
+    border-left: 4px solid transparent;
+    opacity: 1;
 }
 
 .flex {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 
@@ -117,11 +216,11 @@ body {
 }
 
 .modal-content {
-    margin-top: 10%;
+    margin-top: 3%;
     margin-left: 10%;
     margin-right: 10%;
     width: 1000px;
-    height: 100%;
+    height: 90%;
     padding: 40px;
 }
 
@@ -134,7 +233,9 @@ body {
 
 /*Page Number*/
 
-.pagination_button {}
+.pagination a {
+    color: #271756 !important;
+}
 
 
 /*Required*/
@@ -197,7 +298,9 @@ body {
 
 /*Sidebar*/
 
-.sidebar {}
+.sidebar {
+    background-color: #271756;
+}
 
 #side {
     box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5);
@@ -224,6 +327,11 @@ body {
 }
 
 @media only screen and (max-width:991px) {
+    .sidebar-brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     #table-ttsv tbody,
     #table-ttsv tr,
     #table-ttsv td {
@@ -314,10 +422,12 @@ body {
     }
     #content #side {
         position: fixed;
+        top: 0;
         z-index: 1000;
         padding: 0;
         left: -100%;
         transition: left 0.4s ease;
+        min-width: 320px;
     }
     #side.open {
         left: 0 !important;

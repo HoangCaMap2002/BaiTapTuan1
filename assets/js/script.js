@@ -5,7 +5,12 @@ $(document).ready(function() {
             dob: "12/04/2024",
             gender: "Nam",
             courses: "Công nghệ thông tin",
-            address: "123 Đường ABC, Quận XYZ, Thành phố HCM"
+            address: "123 Đường ABC, Quận XYZ, Thành phố HCM",
+            phone: "0964644897",
+            cmnd: "001202001003",
+            consultant: "Nguyễn Huy Hoàng",
+            hignschool: "THPT Phú Xuyên A",
+            email: "hoangutc2002@gmail.com"
         },
         {
             studentId: 2,
@@ -13,7 +18,12 @@ $(document).ready(function() {
             dob: "12/04/2024",
             gender: "Nam",
             courses: "Công nghệ thông tin",
-            address: "456 Đường XYZ, Quận ABC, Thành phố Hà Nội"
+            address: "456 Đường XYZ, Quận ABC, Thành phố Hà Nội",
+            phone: "0964644897",
+            cmnd: "001202001003",
+            consultant: "Nguyễn Huy Hoàng",
+            hignschool: "THPT Phú Xuyên A",
+            email: "hoangutc2002@gmail.com"
         },
         {
             studentId: 3,
@@ -21,7 +31,12 @@ $(document).ready(function() {
             dob: "12/04/2024",
             gender: "Nữ",
             courses: "Xây dựng",
-            address: "789 Đường DEF, Quận HIJ, Thành phố Đà Nẵng"
+            address: "789 Đường DEF, Quận HIJ, Thành phố Đà Nẵng",
+            phone: "0964644897",
+            cmnd: "001202001003",
+            consultant: "Nguyễn Huy Hoàng",
+            hignschool: "THPT Phú Xuyên A",
+            email: "hoangutc2002@gmail.com"
         },
         {
             studentId: 4,
@@ -29,7 +44,12 @@ $(document).ready(function() {
             dob: "12/04/2024",
             gender: "Nam",
             courses: "Kinh tế",
-            address: "789 Đường DEF, Quận HIJ, Thành phố Đà Nẵng"
+            address: "789 Đường DEF, Quận HIJ, Thành phố Đà Nẵng",
+            phone: "0964644897",
+            cmnd: "001202001003",
+            consultant: "Nguyễn Huy Hoàng",
+            hignschool: "THPT Phú Xuyên A",
+            email: "hoangutc2002@gmail.com"
         },
         {
             studentId: 5,
@@ -37,7 +57,12 @@ $(document).ready(function() {
             dob: "12/04/2024",
             gender: "Nữ",
             courses: "Xây dựng",
-            address: "789 Đường DEF, Quận HIJ, Thành phố Đà Nẵng"
+            address: "789 Đường DEF, Quận HIJ, Thành phố Đà Nẵng",
+            phone: "0964644897",
+            cmnd: "001202001003",
+            consultant: "Nguyễn Huy Hoàng",
+            hignschool: "THPT Phú Xuyên A",
+            email: "hoangutc2002@gmail.com"
         },
         {
             studentId: 6,
@@ -45,7 +70,12 @@ $(document).ready(function() {
             dob: "12/04/2024",
             gender: "Nữ",
             courses: "Xây dựng",
-            address: "789 Đường DEF, Quận HIJ, Thành phố Đà Nẵng"
+            address: "789 Đường DEF, Quận HIJ, Thành phố Đà Nẵng",
+            phone: "0964644897",
+            cmnd: "001202001003",
+            consultant: "Nguyễn Huy Hoàng",
+            hignschool: "THPT Phú Xuyên A",
+            email: "hoangutc2002@gmail.com"
         }
     ];
 
@@ -109,12 +139,46 @@ $(document).ready(function() {
             $('#courses').parent().after('<div class="text-danger error-message">Vui lòng chọn khoa</div>');
         }
 
-        // Kiểm tra địa chỉ
-        var address = $('#address').val();
-        if (address == '') {
+        //Kiểm tra số điện thoại
+        var phone = $('#phone').val();
+        var phoneRegex = /^\d{10,11}$/;
+        if (phone == '') {
             isValid = false;
-            $('#address').parent().after('<div class="text-danger error-message">Vui lòng nhập địa chỉ</div>');
+            $('#phone').parent().after('<div class="text-danger error-message">Vui lòng nhập số điện thoại</div>');
+        } else if (!phoneRegex.test(phone)) {
+            isValid = false;
+            $('#phone').parent().after('<div class="text-danger error-message">Vui lòng đúng định dạng số điện thoại</div>');
         }
+
+        //Kiểm tra email
+        var email = $('#email').val();
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email == '') {
+            isValid = false;
+            $('#email').parent().after('<div class="text-danger error-message">Vui lòng nhập email</div>');
+        } else if (!emailRegex.test(email)) {
+            isValid = false;
+            $('#email').parent().after('<div class="text-danger error-message">Vui lòng đúng định dạng email</div>');
+        }
+        //Kiểm tra CMND
+        var cmnd = $('#cmnd').val();
+        if (cmnd == '') {
+            isValid = false;
+            $('#cmnd').parent().after('<div class="text-danger error-message">Vui lòng nhập số cccd</div>');
+        }
+        //Kiểm tra cố vấn 
+        var consultant = $('#consultant').val();
+        if (consultant == '') {
+            isValid = false;
+            $('#consultant').parent().after('<div class="text-danger error-message">Vui lòng nhập cố vấn học tập</div>');
+        }
+        var hignschool = $('#hignschool').val();
+        if (hignschool == '') {
+            isValid = false;
+            $('#hignschool').parent().after('<div class="text-danger error-message">Vui lòng nhập trường cấp 3</div>');
+        }
+
+
 
         return isValid;
     }
@@ -127,6 +191,12 @@ $(document).ready(function() {
             var gender = $('input[name="gender"]:checked').val();
             var courses = $('#courses').val();
             var address = $('#address').val();
+            var phone = $('#phone').val();
+            var email = $('#email').val();
+            var cmnd = $('#cmnd').val();
+            var consultant = $('#consultant').val();
+            var hignschool = $('#hignschool').val();
+
 
             // tạo đối tượng sinh viên
             var student = {
@@ -135,7 +205,12 @@ $(document).ready(function() {
                 dob: dob,
                 gender: gender,
                 courses: courses,
-                address: address
+                address: address,
+                phone: phone,
+                email: email,
+                cmnd: cmnd,
+                consultant: consultant,
+                hignschool: hignschool
             };
 
             // Lấy danh sách sinh viên
@@ -174,15 +249,19 @@ $(document).ready(function() {
 
         // Lặp lại từng học sinh và hiển thị nó trong danh sách
         $.each(students, function(index, student) {
-            $('#studentList').append('<tr class="success"><td style="text-align: center;"><input type="checkbox" class="mobile-checkbox"></td>' +
+            $('#studentList').append('<tr class=""><td style="text-align: center;"><input type="checkbox" class="mobile-checkbox"></td>' +
                 '<td data-title="Mã sinh viên">' + student.studentId + '</td>' +
                 '<td data-title="Họ và tên">' + student.name + '</td>' +
                 '<td data-title="Ngày sinh">' + student.dob + '</td>' +
                 '<td data-title="Giới tính">' + student.gender + '</td>' +
                 '<td data-title="Khoa">' + student.courses + '</td>' +
                 '<td data-title="Địa chỉ">' + student.address + '</td>' +
-                '<td><button class="editBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-pen-to-square mr-1" style="color: red;"></i>Sửa</button> ' +
-                '<button class="deleteBtn btn pd-xs" data-id="' + student.studentId + '"><i class="fa-sharp fa-solid fa-trash mr-1" style="color: red;"></i>Xóa</button></td></tr>');
+                '<td data-title="Chứng minh thư">' + student.cmnd + '</td>' +
+                '<td data-title="Số điện thoại">' + student.phone + '</td>' +
+                '<td data-title="Email">' + student.email + '</td>' +
+                '<td><button class="editBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-pen-to-square mr-1" style="color: #271756;"></i>Sửa</button> ' +
+                '<button class="detailBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-eye fa-eye mr-1" style="color: #271756;"></i>Chi tiết</button> ' +
+                '<button class="deleteBtn btn pd-xs" data-id="' + student.studentId + '"><i class="fa-sharp fa-solid fa-trash mr-1" style="color: #271756;"></i>Xóa</button></td></tr>');
         });
     }
 
@@ -211,6 +290,11 @@ $(document).ready(function() {
         $('input[name="gender"][value="' + student.gender + '"]').prop('checked', true);
         $('#courses').val(student.courses);
         $('#address').val(student.address);
+        $('#phone').val(student.phone);
+        $('#email').val(student.email);
+        $('#cmnd').val(student.cmnd);
+        $('#consultant').val(student.consultant);
+        $('#hignschool').val(student.hignschool);
         $('#saveBtn').hide();
         $('#updateBtn').show();
         $('#resetBtn').hide();
@@ -227,6 +311,11 @@ $(document).ready(function() {
         var gender = $('input[name="gender"]:checked').val();
         var courses = $('#courses').val();
         var address = $('#address').val();
+        var phone = $('#phone').val();
+        var email = $('#email').val();
+        var cmnd = $('#cmnd').val();
+        var consultant = $('#consultant').val();
+        var hignschool = $('#hignschool').val();
 
         // tạo đối tượng sinh viên
         var student = {
@@ -235,7 +324,12 @@ $(document).ready(function() {
             dob: dob,
             gender: gender,
             courses: courses,
-            address: address
+            address: address,
+            phone: phone,
+            email: email,
+            cmnd: cmnd,
+            consultant: consultant,
+            hignschool: hignschool
         };
         // Lấy danh sách sinh viên
         var students = JSON.parse(localStorage.getItem('students')) || [];
@@ -261,15 +355,20 @@ $(document).ready(function() {
     //Xoá cùng lúc nhiều sinh viên
     $('#deleteManyBtn').click(function() {
         // Lặp qua tất cả các ô checkbox trong bảng sinh viên
-        $('#studentList input[type="checkbox"]').each(function() {
-            // Kiểm tra xem checkbox có được chọn không
-            if ($(this).is(':checked')) {
-                // Nếu checkbox được chọn, lấy giá trị của thuộc tính data-id để xác định sinh viên cần xoá
-                var studentIdToDelete = $(this).closest('tr').find('.deleteBtn').data('id');
-                // Gọi hàm để xoá sinh viên từ localStorage hoặc từ danh sách hiển thị và cập nhật giao diện
-                deleteStudent(studentIdToDelete);
-            }
-        });
+        if ($('#studentList input[type="checkbox"].checked').length === 0) {
+            alert("Chọn sinh viên cần xoá");
+        } else {
+            $('#studentList input[type="checkbox"]').each(function() {
+                // Kiểm tra xem checkbox có được chọn không
+                if ($(this).is(':checked')) {
+                    // Nếu checkbox được chọn, lấy giá trị của thuộc tính data-id để xác định sinh viên cần xoá
+                    var studentIdToDelete = $(this).closest('tr').find('.deleteBtn').data('id');
+                    // Gọi hàm để xoá sinh viên từ localStorage hoặc từ danh sách hiển thị và cập nhật giao diện
+                    deleteStudent(studentIdToDelete);
+                }
+            });
+        }
+
     });
 
     function deleteStudent(studentId) {
@@ -351,7 +450,7 @@ $(document).ready(function() {
         if (keyword) {
             conditions.push(function(student) {
                 return student.name.toLowerCase().includes(keyword.toLowerCase()) ||
-                    student.studentId.toLowerCase().includes(keyword.toLowerCase());
+                    student.studentId.toString().toLowerCase().includes(keyword.toLowerCase());
             });
         }
 
@@ -416,23 +515,32 @@ $(document).ready(function() {
 
         // Hiển thị từng kết quả trong danh sách
         $.each(results, function(index, student) {
-            $('#studentList').append('<tr class="success"><td style="text-align: center;"><input type="checkbox" class="mobile-checkbox"></td>' +
+            $('#studentList').append('<tr class=""><td style="text-align: center;"><input type="checkbox" class="mobile-checkbox"></td>' +
                 '<td data-title="Mã sinh viên">' + student.studentId + '</td>' +
                 '<td data-title="Họ và tên">' + student.name + '</td>' +
                 '<td data-title="Ngày sinh">' + student.dob + '</td>' +
                 '<td data-title="Giới tính">' + student.gender + '</td>' +
                 '<td data-title="Khoa">' + student.courses + '</td>' +
                 '<td data-title="Địa chỉ">' + student.address + '</td>' +
-                '<td><button class="editBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-pen-to-square mr-1" style="color: red;"></i>Sửa</button> ' +
-                '<button class="deleteBtn btn pd-xs" data-id="' + student.studentId + '"><i class="fa-sharp fa-solid fa-trash mr-1" style="color: red;"></i>Xóa</button></td></tr>');
+                '<td data-title="Chứng minh thư">' + student.cmnd + '</td>' +
+                '<td data-title="Số điện thoại">' + student.phone + '</td>' +
+                '<td data-title="Email">' + student.email + '</td>' +
+                '<td><button class="editBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-pen-to-square mr-1" style="color: #271756;"></i>Sửa</button> ' +
+                '<button class="detailBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-eye fa-eye mr-1" style="color: #271756;"></i>Chi tiết</button> ' +
+                '<button class="deleteBtn btn pd-xs" data-id="' + student.studentId + '"><i class="fa-sharp fa-solid fa-trash mr-1" style="color: #271756;"></i>Xóa</button></td></tr>');
         });
     }
 
-    $('#custom-search-input input').on('input', function() {
-        var searchText = $(this).val();
-        var selectedCourse = $('#courses-search').val();
-        var male = $('#male-search').val();
-        testSearchStudents(searchText, selectedCourse, male);
+    $('#custom-search-input input').keydown(function(event) {
+        // Kiểm tra nếu mã phím là 13 (phím Enter)
+        if (event.which === 13) {
+            // Lấy giá trị của trường nhập liệu
+            var searchText = $(this).val();
+            var selectedCourse = $('#courses-search').val();
+            var male = $('#male-search').val();
+            // Gọi hàm thực hiện tìm kiếm với các tham số đã lấy được
+            testSearchStudents(searchText, selectedCourse, male);
+        }
     });
 
     // Gắn sự kiện change vào thẻ select

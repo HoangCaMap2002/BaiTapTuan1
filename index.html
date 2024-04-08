@@ -14,9 +14,16 @@
 
 <body>
     <div id="header">
-        <div style="position: absolute;COLOR: white;font-size: 18px;top: 32px;font-weight: bold;left: 8px">
-            <span id="title-header">QUẢN LÝ THÔNG TIN SINH VIÊN</span>
+        <div class="logo">
+            <img src="/assets/img/logo-icon.e02cff84.png" alt="Logo UTC" style="width: 44px; height: 44px;">
+            <div class="header-banner-text">
+                <p>Trường đại học giao thông vận tải</p>
+                <p>Phân hiệu tại TP.Hà Nội</p>
+            </div>
         </div>
+        <!-- <div style="position: absolute;COLOR: white;font-size: 18px;top: 32px;font-weight: bold;left: 8px">
+            <span id="title-header">QUẢN LÝ THÔNG TIN SINH VIÊN</span>
+        </div> -->
         <div class="bars">
             <i class="fa-solid fa-bars"></i>
         </div>
@@ -29,15 +36,23 @@
         <div id="menu">
             <ul id="nav">
                 <li><a href="#">Trang chủ</a></li>
-                <li><a href="#">Giới thiệu</a></li>
-                <li><a href="#">Liên lạc</a></li>
-                <li><a href="#">Quản lý</a></li>
+                <li><a href="#">Giới thiệu chung</a></li>
+                <li><a href="#">Đào tạo</a></li>
+                <li><a href="#">Tuyển sinh</a></li>
+                <li><a href="#">Tin tức</a></li>
             </ul>
         </div>
     </div>
     <div id="content">
         <div class="row no-margin-xs">
-            <div id="side" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <div id="side" class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                <div class="sidebar-brand">
+                    <img src="/assets/img/logo-icon.e02cff84.png" alt="Logo UTC" style="width: 44px; height: 44px;">
+                    <div class="header-banner-text">
+                        <p>Trường đại học giao thông vận tải</p>
+                        <p style="margin-bottom: 0;">Phân hiệu tại TP.Hà Nội</p>
+                    </div>
+                </div>
                 <ul class="sidebar">
                     <li><a href="#">Quản lý 1</a></li>
                     <li><a href="#">Quản lý 2</a></li>
@@ -46,16 +61,16 @@
                     <li><a href="#">Quản lý 5</a></li>
                 </ul>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 no-padding-xs" style="padding-right: 30px;">
+            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 no-padding-xs" style="padding-right: 30px;">
                 <div id="ttsv">
-                    <h1 class="text-center" style="color: #337ab7;">Quản lý sinh viên</h1>
+                    <h1 class="text-center" style="color: #271756;">Quản lý sinh viên</h1>
                     <div class="function flex-direction-column-xs">
                         <div class="box-left">
                             <button type="button" class="btn pd-xs mr-1" style="margin-bottom: 10px;" id="addStudentBtn">
-                                <i class="fa-solid fa-plus mr-1" style="color: red;"></i>Thêm sinh viên
+                                <i class="fa-solid fa-plus mr-1" style="color: #271756;"></i>Thêm sinh viên
                             </button>
                             <button type="button" class="btn pd-xs" style="margin-bottom: 10px;" id="deleteManyBtn">
-                                <i class="fa-sharp fa-solid fa-trash mr-1" style="color: red;"></i>Xoá
+                                <i class="fa-sharp fa-solid fa-trash mr-1" style="color: #271756;"></i>Xoá
                             </button>
                         </div>
                         <div class="search mb-1">
@@ -73,7 +88,7 @@
                             <div id="custom-search-input">
                                 <div class="input-group col-md-12">
                                     <input type="text" class="form-control input-sm input-xs" style="min-width: 150px;" placeholder="Tìm kiếm" />
-                                    <span class="input-group-btn">
+                                    <span class="input-group-btn hidden">
                                         <button class="btn btn-info btn-sm input-xs" type="button">
                                             <i class="glyphicon glyphicon-search"></i>
                                         </button>
@@ -83,14 +98,13 @@
                         </div>
                     </div>
 
-
                     <div id="overlay" class="overlay">
                         <div id="studentModal" class="modal">
                             <div class="modal-content">
                                 <span class="close">&times;</span>
                                 <h2 style="text-align: center; margin-bottom: 20px;">Thông tin sinh viên</h2>
                                 <form class="form-horizontal" id="studentForm">
-                                    <div class="flex">
+                                    <div class="flex mb-1">
                                         <div class="col-lg-6 form-group no-padding">
                                             <label for="studentId">Mã sinh viên</label>
                                             <div class="required">
@@ -105,7 +119,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="flex">
+                                    <div class="flex mb-1">
                                         <div class="col-lg-6 form-group no-padding">
                                             <label for="dob">Ngày sinh:</label>
                                             <div class="required">
@@ -126,24 +140,59 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="gender">Giới tính:</label>
-                                        <input type="radio" id="male" name="gender" value="Nam">
-                                        <label for="male">Nam</label>
-                                        <input type="radio" id="female" name="gender" value="Nữ">
-                                        <label for="female">Nữ</label><br>
-                                        <div id="gender"></div>
+                                    <div class="flex mb-1">
+                                        <div class="col-lg-6 form-group no-padding">
+                                            <label for="cmcd">CMCD</label>
+                                            <div class="required">
+                                                <input class="form-control" type="number" id="cmnd" name="cmnd" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 form-group no-padding">
+                                            <label for="phone">Số điện thoại:</label>
+                                            <div class="required">
+                                                <input class="form-control" type="number" id="phone" name="phone" required><br>
+                                            </div>
+                                        </div>
                                     </div>
 
+                                    <div class="flex mb-1">
+                                        <div class="col-lg-6 form-group no-padding">
+                                            <label for="email">Email</label>
+                                            <div class="required">
+                                                <input class="form-control" type="text" id="email" name="email" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 form-group no-padding">
+                                            <label for="consultant">Cố vấn học tập:</label>
+                                            <div class="required">
+                                                <input class="form-control" type="text" id="consultant" name="consultant" required><br>
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                    <div class="flex mb-1">
+                                        <div class="form-group col-lg-6 no-padding">
+                                            <label for="hignschool">Trường cấp 3</label>
+                                            <div class="required">
+                                                <input class="form-control" type="text" id="hignschool" name="hignschool" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-lg-6 no-padding" style="margin-bottom: 0;">
+                                            <label for="gender">Giới tính:</label>
+                                            <input type="radio" id="male" name="gender" value="Nam">
+                                            <label for="male">Nam</label>
+                                            <input type="radio" id="female" name="gender" value="Nữ">
+                                            <label for="female">Nữ</label><br>
+                                            <div id="gender"></div>
+                                        </div>
+                                    </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group no-padding mb-1">
                                         <label for="address">Địa chỉ:</label>
                                         <textarea class="form-control" id="address" name="address"></textarea><br>
                                     </div>
 
-
-                                    <div class="group-btn">
+                                    <div class="group-btn col-lg-12">
                                         <button class="btn btn-primary mr-1" type="button" id="saveBtn">Lưu</button>
                                         <button class="btn btn-primary" type="button" id="updateBtn">Lưu</button>
                                         <button class="btn btn-primary" type="button" id="resetBtn">Đặt lại</button>
@@ -153,10 +202,8 @@
                         </div>
                     </div>
 
-
                     <div id="table-ttsv">
                         <table class="table table-bordered table-hover">
-
                             <thead>
                                 <tr class="danger text-center">
                                     <th></th>
@@ -166,6 +213,9 @@
                                     <th>Giới tính</th>
                                     <th>Khoa</th>
                                     <th>Quê quán</th>
+                                    <th>CMND</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Email</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
@@ -202,8 +252,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="./assets/js/script.js"></script>
