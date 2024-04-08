@@ -99,7 +99,7 @@ $(document).ready(function() {
         var gender = $('input[name="gender"]:checked').val();
         if (typeof gender === 'undefined') {
             isValid = false;
-            $('#gender').parent().after('<div class="text-danger error-message">Vui lòng chọn giới tính</div>');
+            $('#gender').after('<div class="text-danger error-message">Vui lòng chọn giới tính</div>');
         }
 
         // Kiểm tra khoa
@@ -305,6 +305,7 @@ $(document).ready(function() {
     $('.close').click(function() {
         $('#studentModal').hide();
         $('#overlay').hide();
+        $('.error-message').remove();
     });
 
     // Function to open modal for adding a new student
