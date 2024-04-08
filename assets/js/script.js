@@ -305,7 +305,7 @@ $(document).ready(function() {
     $('.close').click(function() {
         $('#studentModal').hide();
         $('#overlay').hide();
-
+        $('.error-message').remove();
     });
 
     // Function to open modal for adding a new student
