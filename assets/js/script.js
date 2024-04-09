@@ -320,7 +320,7 @@ $(document).ready(function() {
                 '<td data-title="Khoa">' + student.courses + '</td>' +
                 '<td data-title="Địa chỉ">' + student.address + '</td>' +
                 '<td data-title="Chứng minh thư">' + student.cmnd + '</td>' +
-                '<td><button class="editBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-pen-to-square mr-1" style="color: #271756;"></i>Sửa</button> ' +
+                '<td class="option"><button class="editBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-pen-to-square mr-1" style="color: #271756;"></i>Sửa</button> ' +
                 '<button class="detailBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-eye fa-eye mr-1" style="color: #271756;"></i>Chi tiết</button> ' +
                 '<button class="deleteBtn btn pd-xs" data-id="' + student.studentId + '"><i class="fa-sharp fa-solid fa-trash mr-1" style="color: #271756;"></i>Xóa</button></td></tr>');
         });
@@ -587,7 +587,7 @@ $(document).ready(function() {
                 '<td data-title="Khoa">' + student.courses + '</td>' +
                 '<td data-title="Địa chỉ">' + student.address + '</td>' +
                 '<td data-title="Chứng minh thư">' + student.cmnd + '</td>' +
-                '<td><button class="editBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-pen-to-square mr-1" style="color: #271756;"></i>Sửa</button> ' +
+                '<td class="option"><button class="editBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-pen-to-square mr-1" style="color: #271756;"></i>Sửa</button> ' +
                 '<button class="detailBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-eye fa-eye mr-1" style="color: #271756;"></i>Chi tiết</button> ' +
                 '<button class="deleteBtn btn pd-xs" data-id="' + student.studentId + '"><i class="fa-sharp fa-solid fa-trash mr-1" style="color: #271756;"></i>Xóa</button></td></tr>');
         });
