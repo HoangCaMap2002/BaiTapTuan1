@@ -360,6 +360,12 @@ body {
     font-style: italic;
 }
 
+.editBtn,
+.deleteBtn,
+.detailBtn {
+    min-width: 96px;
+}
+
 
 /*Reponsive*/
 
@@ -370,6 +376,14 @@ body {
     }
     .mr-b-xs-1 {
         margin-bottom: 1rem;
+    }
+}
+
+@media only screen and (max-width: 1632px) {
+    .editBtn,
+    .deleteBtn,
+    .detailBtn {
+        margin-top: 8px;
     }
 }
 
@@ -505,6 +519,9 @@ body {
 
 @media (min-width: 993px) and (max-width: 1200px) {
     /* Đặt kiểu dáng cho các thành phần tại điểm phá vỡ LG */
+    .modal-content {
+        height: 80%;
+    }
 }
 
 
