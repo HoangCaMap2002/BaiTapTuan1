@@ -382,6 +382,9 @@ body {
     .modal-content {
         height: 600px !important;
     }
+    .logo {
+        margin-top: 24px;
+    }
 }
 
 @media only screen and (max-width: 1632px) {
