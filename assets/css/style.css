@@ -388,7 +388,12 @@ body {
     td.option {
         padding: 0 !important;
         margin: 10px 0px 10px 20px;
+        text-align: center;
     }
+}
+
+span.input-group-btn {
+    display: none;
 }
 
 @media only screen and (max-width: 1632px) {
@@ -400,6 +405,9 @@ body {
 }
 
 @media only screen and (max-width:991px) {
+    span.input-group-btn {
+        display: block !important;
+    }
     .menu-mobile {
         display: block !important;
     }

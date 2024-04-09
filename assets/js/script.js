@@ -698,4 +698,13 @@ $(document).ready(function() {
         $('#studentDetailModal').hide();
         $('#overlay-detail').hide();
     });
+
+    //Nút search ở mobile
+    $('#search-mobile-btn').click(function() {
+        var searchText = $('#search-text').val();
+        var selectedCourse = $('#courses-search').val();
+        var male = $('#male-search').val();
+        // Gọi hàm thực hiện tìm kiếm với các tham số đã lấy được
+        testSearchStudents(searchText, selectedCourse, male);
+    });
 });
