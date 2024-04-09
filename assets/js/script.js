@@ -1,4 +1,66 @@
 $(document).ready(function() {
+    function showSuccessToast(message) {
+        toast({
+            title: "Thành công!",
+            message: message,
+            type: "success",
+            duration: 5000
+        });
+    }
+
+    function showErrorToast(messageerror) {
+        toast({
+            title: "Thất bại!",
+            message: messageerror,
+            type: "error",
+            duration: 5000
+        });
+    }
+
+    function toast({ title = "", message = "", type = "info", duration = 3000 }) {
+        const main = $("#toast");
+        if (main.length) {
+            const toast = $("<div>");
+
+            // Auto remove toast
+            const autoRemoveId = setTimeout(function() {
+                main.empty();
+            }, duration + 1000);
+
+            // Remove toast when clicked
+            toast.on("click", ".toast__close", function(e) {
+                e.preventDefault();
+                clearTimeout(autoRemoveId);
+                main.empty();
+            });
+
+            const icons = {
+                success: "fas fa-check-circle",
+                info: "fas fa-info-circle",
+                warning: "fas fa-exclamation-circle",
+                error: "fas fa-exclamation-circle"
+            };
+            const icon = icons[type];
+            const delay = (duration / 1000).toFixed(2);
+
+            toast.addClass("toast").addClass(`toast--${type}`);
+            toast.css("animation", `slideInLeft ease .3s, fadeOut linear 1s ${delay}s forwards`);
+
+            toast.html(`
+            <div class="toast__icon">
+                <i class="${icon}"></i>
+            </div>
+            <div class="toast__body">
+                <h3 class="toast__title">${title}</h3>
+                <p class="toast__msg">${message}</p>
+            </div>
+            <div class="toast__close">
+                <i class="fas fa-times"></i>
+            </div>
+          `);
+            main.append(toast);
+        }
+    }
     var sampleStudents = [{
             studentId: 1,
             name: "Nguyễn Văn A",
@@ -20,7 +82,7 @@ $(document).ready(function() {
             courses: "Công nghệ thông tin",
             address: "456 Đường XYZ, Quận ABC, Thành phố Hà Nội",
             phone: "0964644897",
-            cmnd: "001202001003",
+            cmnd: "001202001004",
             consultant: "Nguyễn Huy Hoàng",
             hignschool: "THPT Phú Xuyên A",
             email: "hoangutc2002@gmail.com"
@@ -33,20 +95,20 @@ $(document).ready(function() {
             courses: "Xây dựng",
             address: "789 Đường DEF, Quận HIJ, Thành phố Đà Nẵng",
             phone: "0964644897",
-            cmnd: "001202001003",
+            cmnd: "001202001005",
             consultant: "Nguyễn Huy Hoàng",
             hignschool: "THPT Phú Xuyên A",
             email: "hoangutc2002@gmail.com"
         },
         {
             studentId: 4,
-            name: "Nguyễn Huy Hoang",
+            name: "Nguyễn Huy Hoàng",
             dob: "12/04/2024",
             gender: "Nam",
             courses: "Kinh tế",
             address: "789 Đường DEF, Quận HIJ, Thành phố Đà Nẵng",
             phone: "0964644897",
-            cmnd: "001202001003",
+            cmnd: "001202001006",
             consultant: "Nguyễn Huy Hoàng",
             hignschool: "THPT Phú Xuyên A",
             email: "hoangutc2002@gmail.com"
@@ -59,7 +121,7 @@ $(document).ready(function() {
             courses: "Xây dựng",
             address: "789 Đường DEF, Quận HIJ, Thành phố Đà Nẵng",
             phone: "0964644897",
-            cmnd: "001202001003",
+            cmnd: "001202001007",
             consultant: "Nguyễn Huy Hoàng",
             hignschool: "THPT Phú Xuyên A",
             email: "hoangutc2002@gmail.com"
@@ -72,7 +134,7 @@ $(document).ready(function() {
             courses: "Xây dựng",
             address: "789 Đường DEF, Quận HIJ, Thành phố Đà Nẵng",
             phone: "0964644897",
-            cmnd: "001202001003",
+            cmnd: "001202001008",
             consultant: "Nguyễn Huy Hoàng",
             hignschool: "THPT Phú Xuyên A",
             email: "hoangutc2002@gmail.com"
@@ -235,6 +297,7 @@ $(document).ready(function() {
             // đóng modal
             $('#studentModal').hide();
             $('#overlay').hide();
+            showSuccessToast("Thêm thành công!");
         }
 
     });
@@ -349,12 +412,14 @@ $(document).ready(function() {
         // đóng modal
         $('#studentModal').hide();
         $('#overlay').hide();
+        showSuccessToast("Sửa thành công!");
     });
     //Xoá cùng lúc nhiều sinh viên
     $('#deleteManyBtn').click(function() {
         // Lặp qua tất cả các ô checkbox trong bảng sinh viên
-        if ($('#studentList input[type="checkbox"].checked').length === 0) {
-            alert("Chọn sinh viên cần xoá");
+        if ($('#studentList input[type="checkbox"]:checked').length === 0) {
+            //alert("Chọn sinh viên cần xoá");
+            showErrorToast("Xoá thất bại! Vui lòng chọn sinh viên cần xoá!");
         } else {
             $('#studentList input[type="checkbox"]').each(function() {
                 // Kiểm tra xem checkbox có được chọn không
@@ -389,6 +454,7 @@ $(document).ready(function() {
 
             // Display students
             displayStudents();
+            showSuccessToast("Xoá thành công sinh viên có mã sinh viên: " + studentId);
         }
         // Cập nhật lại giao diện sau khi xoá
     }
