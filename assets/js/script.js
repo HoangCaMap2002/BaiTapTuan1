@@ -257,8 +257,6 @@ $(document).ready(function() {
                 '<td data-title="Khoa">' + student.courses + '</td>' +
                 '<td data-title="Địa chỉ">' + student.address + '</td>' +
                 '<td data-title="Chứng minh thư">' + student.cmnd + '</td>' +
-                '<td data-title="Số điện thoại">' + student.phone + '</td>' +
-                '<td data-title="Email">' + student.email + '</td>' +
                 '<td><button class="editBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-pen-to-square mr-1" style="color: #271756;"></i>Sửa</button> ' +
                 '<button class="detailBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-eye fa-eye mr-1" style="color: #271756;"></i>Chi tiết</button> ' +
                 '<button class="deleteBtn btn pd-xs" data-id="' + student.studentId + '"><i class="fa-sharp fa-solid fa-trash mr-1" style="color: #271756;"></i>Xóa</button></td></tr>');
@@ -523,8 +521,6 @@ $(document).ready(function() {
                 '<td data-title="Khoa">' + student.courses + '</td>' +
                 '<td data-title="Địa chỉ">' + student.address + '</td>' +
                 '<td data-title="Chứng minh thư">' + student.cmnd + '</td>' +
-                '<td data-title="Số điện thoại">' + student.phone + '</td>' +
-                '<td data-title="Email">' + student.email + '</td>' +
                 '<td><button class="editBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-pen-to-square mr-1" style="color: #271756;"></i>Sửa</button> ' +
                 '<button class="detailBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-eye fa-eye mr-1" style="color: #271756;"></i>Chi tiết</button> ' +
                 '<button class="deleteBtn btn pd-xs" data-id="' + student.studentId + '"><i class="fa-sharp fa-solid fa-trash mr-1" style="color: #271756;"></i>Xóa</button></td></tr>');
@@ -601,5 +597,39 @@ $(document).ready(function() {
         isRTL: false, // Ngôn ngữ không phải là ngôn ngữ từ phải qua trái
         showMonthAfterYear: false, // Hiển thị tháng trước năm
         yearSuffix: "" // Hậu tố cho năm
+    });
+
+    //Chi tiết sinh viên
+    // Function để hiển thị thông tin sinh viên trong modal
+    function displayStudentDetailsModal(student) {
+        $('#modalStudentId').text(student.studentId);
+        $('#modalStudentName').text(student.name);
+        $('#modalStudentDob').text(student.dob);
+        $('#modalStudentGender').text(student.gender);
+        $('#modalStudentCourses').text(student.courses);
+        $('#modalStudentAddress').text(student.address);
+        $('#modalStudentPhone').text(student.phone);
+        $('#modalStudentCmnd').text(student.cmnd);
+        $('#modalStudentConsultant').text(student.consultant);
+        $('#modalStudentHignschool').text(student.hignschool);
+        $('#modalStudentEmail').text(student.email);
+    }
+
+    // Sự kiện khi một sinh viên được nhấp vào
+    $('.detailBtn').on('click', function() {
+        // Lấy id của sinh viên từ thuộc tính data-id
+        var studentId = $(this).data('id');
+        // Tìm sinh viên trong danh sách theo id
+        var student = FindStudent(studentId);
+        // Hiển thị thông tin của sinh viên trong modal
+        displayStudentDetailsModal(student);
+        // Hiển thị modal
+        $('#studentDetailModal').show();
+        $('#overlay-detail').show();
+    });
+
+    $('#close-modal-detail').click(function() {
+        $('#studentDetailModal').hide();
+        $('#overlay-detail').hide();
     });
 });

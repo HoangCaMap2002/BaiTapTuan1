@@ -309,8 +309,55 @@ body {
 
 #studentForm textarea,
 #studentForm select,
-#studentForm input {
-    background-color: #d9edf7;
+#studentForm input {}
+
+.btn-primary {
+    color: #fff;
+    background-color: #271756;
+    border-color: #271756;
+}
+
+.modal-content {
+    position: relative;
+    padding-top: 0;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #fff;
+    opacity: 1;
+}
+
+.modal-body {
+    padding: 20px;
+    font-size: 20px;
+}
+
+
+/* Định dạng cho từng dòng thông tin */
+
+.modal-body p {
+    margin-bottom: 16px;
+    line-height: 1.5;
+    /* Để giữ cho các dòng thông tin cách nhau một khoảng lý tưởng */
+}
+
+
+/* Định dạng cho những mục tiêu đề mạnh mẽ */
+
+.modal-body strong {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+
+/* Định dạng cho nội dung thông tin */
+
+.modal-body span {
+    font-style: italic;
 }
 
 
@@ -407,6 +454,7 @@ body {
         overflow-y: scroll;
         padding: 24px;
         position: relative;
+        padding-top: 0;
     }
     .modal-content h2 {
         font-size: 24px;

@@ -102,7 +102,14 @@
                         <div id="studentModal" class="modal">
                             <div class="modal-content">
                                 <span class="close">&times;</span>
-                                <h2 style="text-align: center; margin-bottom: 20px;">Thông tin sinh viên</h2>
+                                <h2 style="text-align: center;
+                                margin-bottom: 20px;
+                                background-color: #271756;
+                                color: #fff;
+                                margin-left: -40px;
+                                margin-right: -40px;
+                                padding: 20px 0;
+                                text-transform: uppercase; margin-top: 0;">Thông tin sinh viên</h2>
                                 <form class="form-horizontal" id="studentForm">
                                     <div class="flex mb-1">
                                         <div class="col-lg-6 form-group no-padding">
@@ -201,6 +208,34 @@
                             </div>
                         </div>
                     </div>
+                    <div id="overlay-detail" class="overlay">
+                        <div id="studentDetailModal" class="modal">
+                            <div class="modal-content">
+                                <span id="close-modal-detail" class="close">&times;</span>
+                                <h2 style="text-align: center;
+                                margin-bottom: 20px;
+                                background-color: #271756;
+                                color: #fff;
+                                margin-left: -40px;
+                                margin-right: -40px;
+                                padding: 20px 0;
+                                text-transform: uppercase; margin-top: 0;">Thông tin sinh viên</h2>
+                                <div class="modal-body">
+                                    <p><strong>ID:</strong> <span id="modalStudentId"></span></p>
+                                    <p><strong>Họ và Tên:</strong> <span id="modalStudentName"></span></p>
+                                    <p><strong>Ngày Sinh:</strong> <span id="modalStudentDob"></span></p>
+                                    <p><strong>Giới Tính:</strong> <span id="modalStudentGender"></span></p>
+                                    <p><strong>Khóa Học:</strong> <span id="modalStudentCourses"></span></p>
+                                    <p><strong>Địa Chỉ:</strong> <span id="modalStudentAddress"></span></p>
+                                    <p><strong>Số Điện Thoại:</strong> <span id="modalStudentPhone"></span></p>
+                                    <p><strong>CMND:</strong> <span id="modalStudentCmnd"></span></p>
+                                    <p><strong>Người Tư Vấn:</strong> <span id="modalStudentConsultant"></span></p>
+                                    <p><strong>Trường THPT:</strong> <span id="modalStudentHignschool"></span></p>
+                                    <p><strong>Email:</strong> <span id="modalStudentEmail"></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div id="table-ttsv">
                         <table class="table table-bordered table-hover">
@@ -214,8 +249,6 @@
                                     <th>Khoa</th>
                                     <th>Quê quán</th>
                                     <th>CMND</th>
-                                    <th>Số điện thoại</th>
-                                    <th>Email</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
