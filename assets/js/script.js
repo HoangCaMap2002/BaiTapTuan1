@@ -311,19 +311,25 @@ $(document).ready(function() {
         var students = JSON.parse(localStorage.getItem('students')) || [];
 
         // Lặp lại từng học sinh và hiển thị nó trong danh sách
+        var html = '';
         $.each(students, function(index, student) {
-            $('#studentList').append('<tr class=""><td style="text-align: center;"><input type="checkbox" class="mobile-checkbox"></td>' +
-                '<td data-title="Mã sinh viên">' + student.studentId + '</td>' +
-                '<td data-title="Họ và tên">' + student.name + '</td>' +
-                '<td data-title="Ngày sinh">' + student.dob + '</td>' +
-                '<td data-title="Giới tính">' + student.gender + '</td>' +
-                '<td data-title="Khoa">' + student.courses + '</td>' +
-                '<td data-title="Địa chỉ">' + student.address + '</td>' +
-                '<td data-title="Chứng minh thư">' + student.cmnd + '</td>' +
-                '<td class="option"><button class="editBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-pen-to-square mr-1" style="color: #271756;"></i>Sửa</button> ' +
-                '<button class="detailBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-eye fa-eye mr-1" style="color: #271756;"></i>Chi tiết</button> ' +
-                '<button class="deleteBtn btn pd-xs" data-id="' + student.studentId + '"><i class="fa-sharp fa-solid fa-trash mr-1" style="color: #271756;"></i>Xóa</button></td></tr>');
+            html += '<tr class="">';
+            html += '<td style="text-align: center;"><input type="checkbox" class="mobile-checkbox"></td>';
+            html += '<td data-title="Mã sinh viên">' + student.studentId + '</td>';
+            html += '<td data-title="Họ và tên">' + student.name + '</td>';
+            html += '<td data-title="Ngày sinh">' + student.dob + '</td>';
+            html += '<td data-title="Giới tính">' + student.gender + '</td>';
+            html += '<td data-title="Khoa">' + student.courses + '</td>';
+            html += '<td data-title="Địa chỉ">' + student.address + '</td>';
+            html += '<td data-title="Chứng minh thư">' + student.cmnd + '</td>';
+            html += '<td class="option">';
+            html += '<button class="editBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-pen-to-square mr-1" style="color: #271756;"></i>Sửa</button>';
+            html += '<button class="detailBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-eye fa-eye mr-1" style="color: #271756;"></i>Chi tiết</button>';
+            html += '<button class="deleteBtn btn pd-xs" data-id="' + student.studentId + '"><i class="fa-sharp fa-solid fa-trash mr-1" style="color: #271756;"></i>Xóa</button>';
+            html += '</td></tr>';
         });
+        // Thêm chuỗi HTML vào DOM
+        $('#studentList').append(html);
     }
 
     // Hiển thị sinh viên khi load page
@@ -548,49 +554,53 @@ $(document).ready(function() {
         displaySearchResults(searchResults);
     }
     //Tìm kiếm sinh viên
-    function searchStudents(keyword, selectedCourse) {
-        var students = JSON.parse(localStorage.getItem('students')) || [];
-        // Lọc danh sách sinh viên dựa trên từ khóa tìm kiếm
-        var searchResults = students;
-        if (keyword != "" && selectedCourse != "") {
-            searchResults = students.filter(function(student) {
-                return (student.name.toLowerCase().includes(keyword.toLowerCase()) ||
-                        student.studentId.toLowerCase().includes(keyword.toLowerCase())) &&
-                    student.courses === selectedCourse;
-            });
-        } else if (keyword != "") {
-            searchResults = students.filter(function(student) {
-                return student.name.toLowerCase().includes(keyword.toLowerCase()) ||
-                    student.studentId.toLowerCase().includes(keyword.toLowerCase());
-            });
-        } else if (selectedCourse != "") {
-            searchResults = students.filter(function(student) {
-                return student.courses === selectedCourse;
-            });
-        }
+    // function searchStudents(keyword, selectedCourse) {
+    //     var students = JSON.parse(localStorage.getItem('students')) || [];
+    //     // Lọc danh sách sinh viên dựa trên từ khóa tìm kiếm
+    //     var searchResults = students;
+    //     if (keyword != "" && selectedCourse != "") {
+    //         searchResults = students.filter(function(student) {
+    //             return (student.name.toLowerCase().includes(keyword.toLowerCase()) ||
+    //                     student.studentId.toLowerCase().includes(keyword.toLowerCase())) &&
+    //                 student.courses === selectedCourse;
+    //         });
+    //     } else if (keyword != "") {
+    //         searchResults = students.filter(function(student) {
+    //             return student.name.toLowerCase().includes(keyword.toLowerCase()) ||
+    //                 student.studentId.toLowerCase().includes(keyword.toLowerCase());
+    //         });
+    //     } else if (selectedCourse != "") {
+    //         searchResults = students.filter(function(student) {
+    //             return student.courses === selectedCourse;
+    //         });
+    //     }
 
-        // Hiển thị kết quả tìm kiếm
-        displaySearchResults(searchResults);
-    }
+    //     // Hiển thị kết quả tìm kiếm
+    //     displaySearchResults(searchResults);
+    // }
 
     function displaySearchResults(results) {
         // Xóa nội dung hiện tại trong phần hiển thị kết quả
         $('#studentList').empty();
-
-        // Hiển thị từng kết quả trong danh sách
+        var html = '';
         $.each(results, function(index, student) {
-            $('#studentList').append('<tr class=""><td style="text-align: center;"><input type="checkbox" class="mobile-checkbox"></td>' +
-                '<td data-title="Mã sinh viên">' + student.studentId + '</td>' +
-                '<td data-title="Họ và tên">' + student.name + '</td>' +
-                '<td data-title="Ngày sinh">' + student.dob + '</td>' +
-                '<td data-title="Giới tính">' + student.gender + '</td>' +
-                '<td data-title="Khoa">' + student.courses + '</td>' +
-                '<td data-title="Địa chỉ">' + student.address + '</td>' +
-                '<td data-title="Chứng minh thư">' + student.cmnd + '</td>' +
-                '<td class="option"><button class="editBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-pen-to-square mr-1" style="color: #271756;"></i>Sửa</button> ' +
-                '<button class="detailBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-eye fa-eye mr-1" style="color: #271756;"></i>Chi tiết</button> ' +
-                '<button class="deleteBtn btn pd-xs" data-id="' + student.studentId + '"><i class="fa-sharp fa-solid fa-trash mr-1" style="color: #271756;"></i>Xóa</button></td></tr>');
+            html += '<tr class="">';
+            html += '<td style="text-align: center;"><input type="checkbox" class="mobile-checkbox"></td>';
+            html += '<td data-title="Mã sinh viên">' + student.studentId + '</td>';
+            html += '<td data-title="Họ và tên">' + student.name + '</td>';
+            html += '<td data-title="Ngày sinh">' + student.dob + '</td>';
+            html += '<td data-title="Giới tính">' + student.gender + '</td>';
+            html += '<td data-title="Khoa">' + student.courses + '</td>';
+            html += '<td data-title="Địa chỉ">' + student.address + '</td>';
+            html += '<td data-title="Chứng minh thư">' + student.cmnd + '</td>';
+            html += '<td class="option">';
+            html += '<button class="editBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-pen-to-square mr-1" style="color: #271756;"></i>Sửa</button>';
+            html += '<button class="detailBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-eye fa-eye mr-1" style="color: #271756;"></i>Chi tiết</button>';
+            html += '<button class="deleteBtn btn pd-xs" data-id="' + student.studentId + '"><i class="fa-sharp fa-solid fa-trash mr-1" style="color: #271756;"></i>Xóa</button>';
+            html += '</td></tr>';
         });
+        // Thêm chuỗi HTML vào DOM
+        $('#studentList').append(html);
     }
 
     $('#custom-search-input input').keydown(function(event) {
@@ -682,7 +692,7 @@ $(document).ready(function() {
     }
 
     // Sự kiện khi một sinh viên được nhấp vào
-    $('.detailBtn').on('click', function() {
+    $(document).on('click', '.detailBtn', function() {
         // Lấy id của sinh viên từ thuộc tính data-id
         var studentId = $(this).data('id');
         // Tìm sinh viên trong danh sách theo id
