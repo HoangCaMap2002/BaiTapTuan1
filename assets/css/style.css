@@ -222,6 +222,7 @@ body {
     width: 1000px;
     height: 80%;
     padding: 40px;
+    overflow-x: hidden;
 }
 
 .modal {
