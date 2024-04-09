@@ -379,6 +379,9 @@ body {
     .mr-b-xs-1 {
         margin-bottom: 1rem;
     }
+    .modal-content {
+        height: 600px !important;
+    }
 }
 
 @media only screen and (max-width: 1632px) {
