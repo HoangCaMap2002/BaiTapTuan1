@@ -717,4 +717,22 @@ $(document).ready(function() {
         // Gọi hàm thực hiện tìm kiếm với các tham số đã lấy được
         testSearchStudents(searchText, selectedCourse, male);
     });
+
+    $('#overlay-detail').on('click', function(event) {
+        if ($(event.target).closest('#overlay-detail').length > 0) {
+            $('#studentDetailModal').hide(); // Ẩn modal
+            $(this).hide(); // Ẩn overlay
+        }
+    });
+
+    $('.modal-content').on('click', function(event) {
+        event.stopPropagation(); // Ngăn chặn sự kiện click được lan truyền đến lớp overlay
+    });
+
+    $('#overlay').on('click', function(event) {
+        if ($(event.target).closest('#overlay').length > 0) {
+            $('#studentDetailModal').hide(); // Ẩn modal
+            $(this).hide(); // Ẩn overlay
+        }
+    });
 });

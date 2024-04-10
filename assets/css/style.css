@@ -405,6 +405,10 @@ span.input-group-btn {
 }
 
 @media only screen and (max-width:991px) {
+    .close,
+    #close-modal-detail {
+        display: none;
+    }
     span.input-group-btn {
         display: block !important;
     }
