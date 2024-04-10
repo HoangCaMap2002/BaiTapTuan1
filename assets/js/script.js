@@ -635,6 +635,12 @@ $(document).ready(function() {
         });
         // Thêm chuỗi HTML vào DOM
         $('#studentList').append(html);
+        $('#studentList').addClass('hide');
+
+        // Sử dụng setTimeout để thêm lớp 'hide' sau một khoảng thời gian ngắn
+        setTimeout(function() {
+            $('#studentList').removeClass('hide');
+        }, 200);
     }
 
     $('#custom-search-input input').keydown(function(event) {

@@ -368,6 +368,17 @@ body {
     min-width: 96px;
 }
 
+#studentList {
+    opacity: 1;
+    /* Đặt opacity mặc định là 1 */
+    transition: opacity 0.5s ease;
+}
+
+#studentList.hide {
+    opacity: 0;
+    /* Khi có lớp 'hide', opacity sẽ chuyển từ 1 thành 0 */
+}
+
 
 /*Reponsive*/
 
