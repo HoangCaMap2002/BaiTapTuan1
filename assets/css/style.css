@@ -675,6 +675,6 @@ span.input-group-btn {
 
 #ui-id-1 {
     position: fixed;
-    height: 200px;
+    max-height: 200px;
     overflow-y: scroll;
 }
