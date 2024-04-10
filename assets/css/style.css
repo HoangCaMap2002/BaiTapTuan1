@@ -209,7 +209,7 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     /* Màu đen với độ trong suốt 50% */
-    z-index: 1000;
+    z-index: 2;
     /* Đảm bảo lớp phủ mờ được hiển thị trên modal */
     display: none;
     /* Ẩn ban đầu */
@@ -671,4 +671,10 @@ span.input-group-btn {
     font-size: 20px;
     color: rgba(0, 0, 0, 0.3);
     cursor: pointer;
+}
+
+#ui-id-1 {
+    position: fixed;
+    height: 200px;
+    overflow-y: scroll;
 }

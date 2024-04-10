@@ -9,6 +9,53 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            var availableTags = [
+                "THPT Phú Xuyên A",
+                "THPT Trần Phú",
+                "THPT Lê Hồng Phong",
+                "THPT Nguyễn Huệ",
+                "THPT Lê Quý Đôn",
+                "THPT Chu Văn An",
+                "THPT Trần Đại Nghĩa",
+                "THPT Lương Văn Chánh",
+                "THPT Phan Bội Châu",
+                "THPT Lê Văn Hưu",
+                "THPT Lý Tự Trọng",
+                "THPT Nguyễn Văn Trỗi",
+                "THPT Ngô Quyền",
+                "THPT Phan Chu Trinh",
+                "THPT Trịnh Học",
+                "THPT Võ Thị Sáu",
+                "THPT Võ Văn Tần",
+                "THPT Đống Đa",
+                "THPT Hoàng Diệu",
+                "THPT Hùng Vương",
+                "THPT Hưng Lợi",
+                "THPT Lý Thường Kiệt",
+                "THPT Nguyễn Thượng Hiền",
+                "THPT Nguyễn Trãi",
+                "THPT Quang Trung",
+                "THPT Thái Thượng Hoàng",
+                "THPT Trần Quốc Toản",
+                "THPT Trần Cao Vân",
+                "THPT Trần Văn Ơn",
+                "THPT Trần Hưng Đạo",
+                "THPT Trưng Vương",
+                "THPT Võ Nguyên Giáp",
+                "THPT Võ Thị Sáu",
+                "THPT Võ Văn Kiệt",
+                "THPT Võ Văn Tần"
+            ];
+            $("#hignschool").autocomplete({
+                source: availableTags
+            });
+        });
+    </script>
 </head>
 
 <body>
