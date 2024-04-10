@@ -130,7 +130,12 @@
                             <button type="button" class="btn pd-xs" style="margin-bottom: 10px;" id="deleteManyBtn">
                                 <i class="fa-sharp fa-solid fa-trash mr-1" style="color: #271756;"></i>Xoá
                             </button>
+                            <div class="upload-file" style="width: 200px;">
+                                <input type="file" id="fileInput" style="margin-bottom: 4px;">
+                                <button class="btn btn-primary mb-1" id="uploadBtn">Upload File thông tin</button>
+                            </div>
                         </div>
+
                         <div class="search mb-1">
                             <select class="form-control input-sm mr-1 input-xs mr-b-xs-1" id="courses-search" name="courses-search">
                                 <option value="" selected>-- Tất cả khoa --</option>
@@ -257,10 +262,6 @@
                                         <textarea class="form-control" id="address" name="address"></textarea><br>
                                     </div>
                                     <div class="group-btn col-lg-12">
-                                        <div class="upload-file" style="width: 200px;">
-                                            <input type="file" id="fileInput" style="margin-bottom: 4px;">
-                                            <button class="btn btn-primary mb-1" id="uploadBtn">Upload File thông tin</button>
-                                        </div>
                                         <button class="btn btn-primary mr-1" type="button" id="saveBtn">Lưu</button>
                                         <button class="btn btn-primary" type="button" id="updateBtn">Lưu</button>
                                         <button class="btn btn-primary" type="button" id="resetBtn">Đặt lại</button>
