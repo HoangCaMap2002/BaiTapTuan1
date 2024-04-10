@@ -3,6 +3,12 @@ $(document).ready(function() {
     $('#uploadBtn').click(function() {
         var fileInput = $('#fileInput')[0].files[0];
         if (fileInput) {
+            var fileName = fileInput.name;
+            var fileExtension = fileName.split('.').pop().toLowerCase();
+            if (fileExtension !== 'xls' && fileExtension !== 'xlsx') {
+                alert('Vui lòng chọn một tệp Excel (.xls hoặc .xlsx)');
+                return;
+            }
             var reader = new FileReader();
             reader.onload = function(e) {
                 var data = new Uint8Array(e.target.result);
