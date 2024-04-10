@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -255,8 +256,11 @@
                                         <label for="address">Địa chỉ:</label>
                                         <textarea class="form-control" id="address" name="address"></textarea><br>
                                     </div>
-
                                     <div class="group-btn col-lg-12">
+                                        <div class="upload-file" style="width: 200px;">
+                                            <input type="file" id="fileInput" style="margin-bottom: 4px;">
+                                            <button class="btn btn-primary" id="uploadBtn">Upload File thông tin</button>
+                                        </div>
                                         <button class="btn btn-primary mr-1" type="button" id="saveBtn">Lưu</button>
                                         <button class="btn btn-primary" type="button" id="updateBtn">Lưu</button>
                                         <button class="btn btn-primary" type="button" id="resetBtn">Đặt lại</button>
