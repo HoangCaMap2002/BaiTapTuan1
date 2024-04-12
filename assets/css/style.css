@@ -238,6 +238,11 @@ body {
     color: #271756 !important;
 }
 
+.pagination>li>a {
+    float: none;
+    margin-right: -4px;
+}
+
 
 /*Required*/
 
