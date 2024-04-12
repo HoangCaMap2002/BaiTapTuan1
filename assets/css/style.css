@@ -734,7 +734,7 @@ span.input-group-btn {
     margin-left: 20px
 }
 
-.active a {
+.nav .active a {
     color: #facb01;
     border-left: 5px solid #9b59b6;
     background-color: #1B1B1B;
@@ -755,11 +755,11 @@ span.input-group-btn {
 }
 
 @media only screen and (max-width: 860px) {
-    .nav .text {
-        /* display: none; */
+    /*  .nav .text {
+        display: none;
     }
     .nav-container,
-    a {
+    .nav a {
         width: 70px;
     }
     .nav a:hover {
@@ -772,7 +772,7 @@ span.input-group-btn {
     .nav a:hover .text {
         display: block;
         padding-left: 30%;
-    }
+    } */
 }
 
 @media only screen and (max-width: 480px) {
