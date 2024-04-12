@@ -645,6 +645,7 @@ $(document).ready(function() {
 
     // Close modal when close button is clicked
     $('.close').click(function() {
+        $('#studentForm')[0].reset();
         $('#studentModal').hide();
         $('#overlay').hide();
         $('.error-message').remove();
