@@ -277,12 +277,6 @@ $(document).ready(function() {
             $('#courses').parent().after('<div class="text-danger error-message">Vui lòng chọn khoa</div>');
         }
 
-        //CLB
-        var clb = $('#clb').val();
-        if (courses == '') {
-            isValid = false;
-            $('#courses').parent().after('<div class="text-danger error-message">Vui lòng chọn khoa</div>');
-        }
 
         //Kiểm tra số điện thoại
         var phone = $('#phone').val();
