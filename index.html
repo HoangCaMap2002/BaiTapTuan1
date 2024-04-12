@@ -15,6 +15,10 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
         $(function() {
+            var listLop = [
+                "AAAA", "BBBB", "CCCC", "DDDD", "EEEE", "FFFF", "GGGG", "HHHH", "QQQQ", "WWWW", "EEEE", "TTTT", "YYYYY",
+                "UUUUU", "IIIII", "OOOOO", "PPPP", "SSSS", "JJJJ", "KKKK", "LLLLL", "ZZZZ", "XXXX", "VVVVV", "BBBBB", "NNNNN", "MMMMMMMM"
+            ];
             var availableTags = [
                 "THPT Phú Xuyên A",
                 "THPT Trần Phú",
@@ -54,6 +58,9 @@
             ];
             $("#hignschool").autocomplete({
                 source: availableTags
+            });
+            $("#classname").autocomplete({
+                source: listLop
             });
         });
     </script>
