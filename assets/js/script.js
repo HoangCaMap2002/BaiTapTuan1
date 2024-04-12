@@ -648,7 +648,7 @@ $(document).ready(function() {
             $('#studentList').removeClass('hide');
         }, 200);
     }
-
+    //Tìm kiếm khi ấn enter
     $('#custom-search-input input').keydown(function(event) {
         // Kiểm tra nếu mã phím là 13 (phím Enter)
         if (event.which === 13) {
@@ -661,7 +661,7 @@ $(document).ready(function() {
         }
     });
 
-    // Gắn sự kiện change vào thẻ select
+    // Tìm kiếm theo khao và giới tính
     $('#courses-search, #male-search').change(function() {
         // Lấy giá trị của lựa chọn mới
         var selectedCourse = $('#courses-search').val();
@@ -780,5 +780,9 @@ $(document).ready(function() {
             $('#studentDetailModal').hide(); // Ẩn modal
             $(this).hide(); // Ẩn overlay
         }
+    });
+
+    $('.nav li').click(function() {
+        $(this).addClass('active').siblings().removeClass('active');
     });
 });
