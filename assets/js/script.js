@@ -112,7 +112,13 @@ $(document).ready(function() {
             cmnd: "001202001003",
             consultant: "Nguyễn Huy Hoàng",
             hignschool: "THPT Phú Xuyên A",
-            email: "hoangutc2002@gmail.com"
+            email: "hoangutc2002@gmail.com",
+            lop: "CNTT2",
+            khoanam: "2020-2024",
+            sothich: "",
+            hocbong: "",
+            chungchi: "",
+            clb: "Câu lạc bộ truyền thông"
         },
         {
             studentId: 2,
@@ -125,7 +131,13 @@ $(document).ready(function() {
             cmnd: "001202001004",
             consultant: "Nguyễn Huy Hoàng",
             hignschool: "THPT Phú Xuyên A",
-            email: "hoangutc2002@gmail.com"
+            email: "hoangutc2002@gmail.com",
+            lop: "CNTT2",
+            khoanam: "2020-2024",
+            sothich: "",
+            hocbong: "",
+            chungchi: "",
+            clb: "Câu lạc bộ truyền thông"
         },
         {
             studentId: 3,
@@ -138,7 +150,13 @@ $(document).ready(function() {
             cmnd: "001202001005",
             consultant: "Nguyễn Huy Hoàng",
             hignschool: "THPT Phú Xuyên A",
-            email: "hoangutc2002@gmail.com"
+            email: "hoangutc2002@gmail.com",
+            lop: "CNTT2",
+            khoanam: "2020-2024",
+            sothich: "",
+            hocbong: "",
+            chungchi: "",
+            clb: "Câu lạc bộ truyền thông"
         },
         {
             studentId: 4,
@@ -151,7 +169,13 @@ $(document).ready(function() {
             cmnd: "001202001006",
             consultant: "Nguyễn Huy Hoàng",
             hignschool: "THPT Phú Xuyên A",
-            email: "hoangutc2002@gmail.com"
+            email: "hoangutc2002@gmail.com",
+            lop: "CNTT2",
+            khoanam: "2020-2024",
+            sothich: "",
+            hocbong: "",
+            chungchi: "",
+            clb: "Câu lạc bộ truyền thông"
         },
         {
             studentId: 5,
@@ -164,7 +188,13 @@ $(document).ready(function() {
             cmnd: "001202001007",
             consultant: "Nguyễn Huy Hoàng",
             hignschool: "THPT Phú Xuyên A",
-            email: "hoangutc2002@gmail.com"
+            email: "hoangutc2002@gmail.com",
+            lop: "CNTT2",
+            khoanam: "2020-2024",
+            sothich: "",
+            hocbong: "",
+            chungchi: "",
+            clb: "Câu lạc bộ truyền thông"
         },
         {
             studentId: 6,
@@ -177,7 +207,13 @@ $(document).ready(function() {
             cmnd: "001202001008",
             consultant: "Nguyễn Huy Hoàng",
             hignschool: "THPT Phú Xuyên A",
-            email: "hoangutc2002@gmail.com"
+            email: "hoangutc2002@gmail.com",
+            lop: "CNTT2",
+            khoanam: "2020-2024",
+            sothich: "",
+            hocbong: "",
+            chungchi: "",
+            clb: "Câu lạc bộ truyền thông"
         }
     ];
 
@@ -241,6 +277,13 @@ $(document).ready(function() {
             $('#courses').parent().after('<div class="text-danger error-message">Vui lòng chọn khoa</div>');
         }
 
+        //CLB
+        var clb = $('#clb').val();
+        if (courses == '') {
+            isValid = false;
+            $('#courses').parent().after('<div class="text-danger error-message">Vui lòng chọn khoa</div>');
+        }
+
         //Kiểm tra số điện thoại
         var phone = $('#phone').val();
         var phoneRegex = /^\d{10,11}$/;
@@ -274,14 +317,23 @@ $(document).ready(function() {
             isValid = false;
             $('#consultant').parent().after('<div class="text-danger error-message">Vui lòng nhập cố vấn học tập</div>');
         }
+        //Trường cấp 3
         var hignschool = $('#hignschool').val();
         if (hignschool == '') {
             isValid = false;
             $('#hignschool').parent().after('<div class="text-danger error-message">Vui lòng nhập trường cấp 3</div>');
         }
-
-
-
+        //Lớp
+        var lop = $('#classname').val();
+        if (lop == '') {
+            isValid = false;
+            $('#classname').parent().after('<div class="text-danger error-message">Vui lòng nhập lớp</div>');
+        }
+        var khoanam = $('#khoa').val();
+        if (khoanam == '') {
+            isValid = false;
+            $('#khoa').parent().after('<div class="text-danger error-message">Vui lòng chọn năm học</div>');
+        }
         return isValid;
     }
     // Lưu thông tin sinh viên
@@ -298,8 +350,28 @@ $(document).ready(function() {
             var cmnd = $('#cmnd').val();
             var consultant = $('#consultant').val();
             var hignschool = $('#hignschool').val();
+            var khoanam = $('#khoa').val();
+            var lop = $('#classname').val();
+            var clb = $('#clb').val();
 
+            // Lặp qua tất cả các ô checkbox đã được chọn và lấy giá trị của chúng
+            var chungchi = [];
+            $('input[type=checkbox][name=chungchi]:checked').each(function() {
+                chungchi.push($(this).val());
+            });
+            console.log("Checked values: ", chungchi);
 
+            var sothich = [];
+            $('input[type=checkbox][name=skill]:checked').each(function() {
+                sothich.push($(this).val());
+            });
+            console.log("Checked values: ", sothich);
+
+            var hocbong = [];
+            $('input[type=checkbox][name=hocbong]:checked').each(function() {
+                hocbong.push($(this).val());
+            });
+            console.log("Checked values: ", hocbong);
             // tạo đối tượng sinh viên
             var student = {
                 studentId: studentId,
@@ -312,8 +384,15 @@ $(document).ready(function() {
                 email: email,
                 cmnd: cmnd,
                 consultant: consultant,
-                hignschool: hignschool
+                hignschool: hignschool,
+                khoanam: khoanam,
+                lop: lop,
+                clb: clb,
+                chungchi: chungchi,
+                sothich: sothich,
+                hocbong: hocbong
             };
+            console.log(student);
 
             // Lấy danh sách sinh viên
             var students = JSON.parse(localStorage.getItem('students')) || [];
@@ -353,6 +432,7 @@ $(document).ready(function() {
         // Lặp lại từng học sinh và hiển thị nó trong danh sách
         var html = '';
         $.each(students, function(index, student) {
+
             html += '<tr class="">';
             html += '<td style="text-align: center;"><input type="checkbox" class="mobile-checkbox"></td>';
             html += '<td data-title="Mã sinh viên">' + student.studentId + '</td>';
@@ -360,8 +440,6 @@ $(document).ready(function() {
             html += '<td data-title="Ngày sinh">' + student.dob + '</td>';
             html += '<td data-title="Giới tính">' + student.gender + '</td>';
             html += '<td data-title="Khoa">' + student.courses + '</td>';
-            html += '<td data-title="Địa chỉ">' + student.address + '</td>';
-            html += '<td data-title="Chứng minh thư">' + student.cmnd + '</td>';
             html += '<td class="option">';
             html += '<button class="editBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-pen-to-square mr-1" style="color: #271756;"></i>Sửa</button>';
             html += '<button class="detailBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-eye fa-eye mr-1" style="color: #271756;"></i>Chi tiết</button>';
@@ -402,6 +480,34 @@ $(document).ready(function() {
         $('#cmnd').val(student.cmnd);
         $('#consultant').val(student.consultant);
         $('#hignschool').val(student.hignschool);
+        $('#classname').val(student.lop);
+        $('#khoa').val(student.khoanam);
+        $('#clb').val(student.clb);
+
+        $('input[type=checkbox][name=chungchi]').each(function() {
+            var checkboxValue = $(this).val();
+            // Kiểm tra xem giá trị của checkbox có tồn tại trong mảng dữ liệu không
+            if (student.chungchi.includes(checkboxValue)) {
+                // Nếu tồn tại, đặt thuộc tính checked của checkbox là true
+                $(this).prop('checked', true);
+            }
+        });
+        $('input[type=checkbox][name=skill]').each(function() {
+            var checkboxValue = $(this).val();
+            // Kiểm tra xem giá trị của checkbox có tồn tại trong mảng dữ liệu không
+            if (student.sothich.includes(checkboxValue)) {
+                // Nếu tồn tại, đặt thuộc tính checked của checkbox là true
+                $(this).prop('checked', true);
+            }
+        });
+        $('input[type=checkbox][name=hocbong]').each(function() {
+            var checkboxValue = $(this).val();
+            // Kiểm tra xem giá trị của checkbox có tồn tại trong mảng dữ liệu không
+            if (student.hocbong.includes(checkboxValue)) {
+                // Nếu tồn tại, đặt thuộc tính checked của checkbox là true
+                $(this).prop('checked', true);
+            }
+        });
         $('#saveBtn').hide();
         $('#updateBtn').show();
         $('#resetBtn').hide();
@@ -423,7 +529,28 @@ $(document).ready(function() {
         var cmnd = $('#cmnd').val();
         var consultant = $('#consultant').val();
         var hignschool = $('#hignschool').val();
+        var khoanam = $('#khoa').val();
+        var lop = $('#classname').val();
+        var clb = $('#clb').val();
 
+        // Lặp qua tất cả các ô checkbox đã được chọn và lấy giá trị của chúng
+        var chungchi = [];
+        $('input[type=checkbox][name=chungchi]:checked').each(function() {
+            chungchi.push($(this).val());
+        });
+        console.log("Checked values: ", chungchi);
+
+        var sothich = [];
+        $('input[type=checkbox][name=skill]:checked').each(function() {
+            sothich.push($(this).val());
+        });
+        console.log("Checked values: ", sothich);
+
+        var hocbong = [];
+        $('input[type=checkbox][name=hocbong]:checked').each(function() {
+            hocbong.push($(this).val());
+        });
+        console.log("Checked values: ", hocbong);
         // tạo đối tượng sinh viên
         var student = {
             studentId: studentId,
@@ -436,7 +563,13 @@ $(document).ready(function() {
             email: email,
             cmnd: cmnd,
             consultant: consultant,
-            hignschool: hignschool
+            hignschool: hignschool,
+            khoanam: khoanam,
+            lop: lop,
+            clb: clb,
+            chungchi: chungchi,
+            sothich: sothich,
+            hocbong: hocbong
         };
         // Lấy danh sách sinh viên
         var students = JSON.parse(localStorage.getItem('students')) || [];
@@ -631,8 +764,6 @@ $(document).ready(function() {
             html += '<td data-title="Ngày sinh">' + student.dob + '</td>';
             html += '<td data-title="Giới tính">' + student.gender + '</td>';
             html += '<td data-title="Khoa">' + student.courses + '</td>';
-            html += '<td data-title="Địa chỉ">' + student.address + '</td>';
-            html += '<td data-title="Chứng minh thư">' + student.cmnd + '</td>';
             html += '<td class="option">';
             html += '<button class="editBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-pen-to-square mr-1" style="color: #271756;"></i>Sửa</button>';
             html += '<button class="detailBtn btn pd-xs mr-1" data-id="' + student.studentId + '"><i class="fa-solid fa-eye fa-eye mr-1" style="color: #271756;"></i>Chi tiết</button>';
@@ -735,6 +866,31 @@ $(document).ready(function() {
         $('#modalStudentConsultant').text(student.consultant);
         $('#modalStudentHignschool').text(student.hignschool);
         $('#modalStudentEmail').text(student.email);
+        $('#modalStudentLop').text(student.lop);
+        $('#modalStudentKhoa').text(student.khoanam);
+        $('#modalStudentCLB').text(student.clb);
+
+        if (student.chungchi.length > 0) {
+            var stringChungChi;
+            stringChungChi = student.chungchi.join(", ");
+            $('#modalStudentTA').text(stringChungChi);
+        } else {
+            $('#modalStudentTA').text("Không");
+        }
+        if (student.sothich.length > 0) {
+            var stringSoThich;
+            stringSoThich = student.sothich.join(", ");
+            $('#modalStudentST').text(stringSoThich);
+        } else {
+            $('#modalStudentST').text("Không");
+        }
+        if (student.hocbong.length > 0) {
+            var stringHocBong;
+            stringHocBong = student.hocbong.join(", ");
+            $('#modalStudentHB').text(stringHocBong);
+        } else {
+            $('#modalStudentHB').text("Không");
+        }
     }
 
     // Sự kiện khi một sinh viên được nhấp vào

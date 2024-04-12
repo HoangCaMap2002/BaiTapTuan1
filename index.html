@@ -164,7 +164,7 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 no-padding-xs" style="padding-right: 15px;">
                 <div id="ttsv">
-                    <h1 class="text-center" style="color: #271756;">Quản lý sinh viên</h1>
+                    <h1 class="text-center mb-1" style="color: #271756; text-transform: uppercase;">Quản lý sinh viên</h1>
                     <div class="function flex-direction-column-xs">
                         <div class="box-left">
                             <button type="button" class="btn pd-xs mr-1" style="margin-bottom: 10px;" id="addStudentBtn">
@@ -173,7 +173,7 @@
                             <button type="button" class="btn pd-xs" style="margin-bottom: 10px;" id="deleteManyBtn">
                                 <i class="fa-sharp fa-solid fa-trash mr-1" style="color: #271756;"></i>Xoá
                             </button>
-                            <div class="upload-file" style="width: 200px;">
+                            <div class="upload-file" style="width: 200px; display: none;">
                                 <input type="file" id="fileInput" style="margin-bottom: 4px;">
                                 <button class="btn btn-primary mb-1" id="uploadBtn">Upload File thông tin</button>
                             </div>
@@ -218,29 +218,28 @@
                                 text-transform: uppercase; margin-top: 0;">Thông tin sinh viên</h2>
                                 <form class="form-horizontal" id="studentForm">
                                     <div class="flex mb-1">
-                                        <div class="col-lg-6 form-group no-padding">
+                                        <div class="col-lg-4 form-group no-padding">
                                             <label for="studentId">Mã sinh viên</label>
                                             <div class="required">
                                                 <input class="form-control" type="text" id="studentId" name="studentId" required>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 form-group no-padding">
+                                        <div class="col-lg-4 form-group no-padding">
                                             <label for="name">Họ và tên:</label>
                                             <div class="required">
                                                 <input class="form-control" type="text" id="name" name="name" required><br>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="flex mb-1">
-                                        <div class="col-lg-6 form-group no-padding">
+                                        <div class="col-lg-4 form-group no-padding">
                                             <label for="dob">Ngày sinh:</label>
                                             <div class="required">
                                                 <input class="form-control" type="text" id="dob" name="dob" required><br>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <div class="col-lg-6 form-group no-padding">
+                                    <div class="flex mb-1">
+                                        <div class="col-lg-4 form-group no-padding">
                                             <label for="courses">Khoa:</label>
                                             <div class="required">
                                                 <select class="form-control" id="courses" name="courses" required>
@@ -251,46 +250,143 @@
                                                 </select><br>
                                             </div>
                                         </div>
+                                        <div class="col-lg-4 form-group no-padding">
+                                            <label for="classname">Lớp</label>
+                                            <div class="required">
+                                                <input class="form-control" type="text" id="classname" name="classname" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 form-group no-padding">
+                                            <label for="khoa">Khoá</label>
+                                            <div class="required">
+                                                <select class="form-control" id="khoa" name="khoa" required>
+                                                    <option value="" selected>-- Năm --</option>
+                                                    <option value="2020-2024">2020-2024</option>
+                                                    <option value="2024-2028">2024-2028</option>
+                                                    <option value="2028-2032">2028-2032</option>
+                                                </select><br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex mb-1" style="align-items: start;">
+                                        <div class="col-lg-3 form-group no-padding">
+                                            <label for="checkbox">Chứng chỉ tiếng anh</label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="chungchi" value="Ielts">
+                                                <label class="form-check-label" for="ielts">
+                                                Ielts
+                                            </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="chungchi" value="Toiec">
+                                                <label class="form-check-label" for="toiec">
+                                                Toeic
+                                            </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 form-group no-padding">
+                                            <label for="checkbox">Kỹ năng/ Sở thích</label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="skill" value="Lập trình">
+                                                <label class="form-check-label" for="laptrinh">
+                                                Lập trình
+                                            </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="skill" value="Âm nhạc">
+                                                <label class="form-check-label" for="amnhac">
+                                                Âm nhạc
+                                            </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="skill" value="Thể thao">
+                                                <label class="form-check-label" for="thethao">
+                                                Thể thao
+                                            </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="skill" value="Nghệ thuật">
+                                                <label class="form-check-label" for="nghethuat">
+                                                Nghệ thuật
+                                            </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="skill" value="Du lịch">
+                                                <label class="form-check-label" for="dulich">
+                                                Du lịch
+                                            </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 form-group no-padding">
+                                            <label for="checkbox">Học bổng</label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="hocbong" value="Học bổng trường">
+                                                <label class="form-check-label" for="hocbongtruong">
+                                                Học bổng trường
+                                            </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="hocbong" value="Học bổng doang nghiệp">
+                                                <label class="form-check-label" for="hocbongdn">
+                                                Học bổng doanh nghiệp
+                                            </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="hocbong" value="Học bổng chính phủ">
+                                                <label class="form-check-label" for="hocbongcp">
+                                                Học bổng chính phủ
+                                            </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 form-group no-padding">
+                                            <label for="clb">Câu lạc bộ</label>
+                                            <div class="required">
+                                                <select class="form-control" id="clb" name="clb" required>
+                                                    <option value="Không" selected>-- Không --</option>
+                                                    <option value="Câu lạc bộ công nghệ thông tin">Câu lạc bộ công nghệ thông tin</option>
+                                                    <option value="Câu lạc bộ truyền thông">Câu lạc bộ truyền thông</option>
+                                                    <option value="Câu lạc bộ âm nhạc">Câu lạc bộ âm nhạc</option>
+                                                    <option value="Câu lạc bộ hiến máu">Câu lạc bộ hiến máu</option>
+                                                </select><br>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="flex mb-1">
-                                        <div class="col-lg-6 form-group no-padding">
+                                        <div class="col-lg-4 form-group no-padding">
                                             <label for="cmcd">CMCD</label>
                                             <div class="required">
                                                 <input class="form-control" type="number" id="cmnd" name="cmnd" required>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 form-group no-padding">
+                                        <div class="col-lg-4 form-group no-padding">
                                             <label for="phone">Số điện thoại:</label>
                                             <div class="required">
                                                 <input class="form-control" type="number" id="phone" name="phone" required><br>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="flex mb-1">
-                                        <div class="col-lg-6 form-group no-padding">
+                                        <div class="col-lg-4 form-group no-padding">
                                             <label for="email">Email</label>
                                             <div class="required">
                                                 <input class="form-control" type="text" id="email" name="email" required>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 form-group no-padding">
+                                    </div>
+
+                                    <div class="flex mb-1">
+                                        <div class="col-lg-4 form-group no-padding">
                                             <label for="consultant">Cố vấn học tập:</label>
                                             <div class="required">
                                                 <input class="form-control" type="text" id="consultant" name="consultant" required><br>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="flex mb-1">
-                                        <div class="form-group col-lg-6 no-padding">
+                                        <div class="form-group col-lg-4 no-padding">
                                             <label for="hignschool">Trường cấp 3</label>
                                             <div class="required">
                                                 <input class="form-control" type="text" id="hignschool" name="hignschool" required>
                                             </div>
                                         </div>
-                                        <div class="form-group col-lg-6 no-padding" style="margin-bottom: 0;">
+                                        <div class="form-group col-lg-4 no-padding" style="margin-bottom: 0;">
                                             <label for="gender">Giới tính:</label>
                                             <input type="radio" id="male" name="gender" value="Nam">
                                             <label for="male">Nam</label>
@@ -300,10 +396,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group no-padding mb-1">
-                                        <label for="address">Địa chỉ:</label>
-                                        <textarea class="form-control" id="address" name="address"></textarea><br>
+                                    <div class="flex mb-1">
+                                        <div class="form-group col-lg-6 no-padding">
+                                            <label for="address">Địa chỉ:</label>
+                                            <textarea class="form-control" id="address" name="address"></textarea><br>
+                                        </div>
                                     </div>
+
                                     <div class="group-btn col-lg-12">
                                         <button class="btn btn-primary mr-1" type="button" id="saveBtn">Lưu</button>
                                         <button class="btn btn-primary" type="button" id="updateBtn">Lưu</button>
@@ -337,6 +436,12 @@
                                     <p><strong>Cố vấn học tập:</strong> <span id="modalStudentConsultant"></span></p>
                                     <p><strong>Trường THPT:</strong> <span id="modalStudentHignschool"></span></p>
                                     <p><strong>Email:</strong> <span id="modalStudentEmail"></span></p>
+                                    <p><strong>Lớp:</strong> <span id="modalStudentLop"></span></p>
+                                    <p><strong>Khoá năm:</strong> <span id="modalStudentKhoa"></span></p>
+                                    <p><strong>Chứng chỉ tiếng anh:</strong> <span id="modalStudentTA"></span></p>
+                                    <p><strong>Sở thích:</strong> <span id="modalStudentST"></span></p>
+                                    <p><strong>Học bổng:</strong> <span id="modalStudentHB"></span></p>
+                                    <p><strong>Câu lạc bộ:</strong> <span id="modalStudentCLB"></span></p>
                                 </div>
                             </div>
                         </div>
@@ -352,9 +457,7 @@
                                     <th>Ngày sinh</th>
                                     <th>Giới tính</th>
                                     <th>Khoa</th>
-                                    <th>Quê quán</th>
-                                    <th>CMND</th>
-                                    <th>Chức năng</th>
+                                    <th style="width: 340px;">Chức năng</th>
                                 </tr>
                             </thead>
                             <tbody id="studentList">

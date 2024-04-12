@@ -219,8 +219,8 @@ body {
     margin-top: 3%;
     margin-left: 10%;
     margin-right: 10%;
-    width: 1000px;
-    height: 80%;
+    width: 100%;
+    /* height: 80%; */
     padding: 40px;
     overflow-x: hidden;
 }
@@ -382,6 +382,10 @@ body {
 #studentList.hide {
     opacity: 0;
     /* Khi có lớp 'hide', opacity sẽ chuyển từ 1 thành 0 */
+}
+
+.flex .form-check {
+    margin-left: 8px;
 }
 
 
